@@ -1,0 +1,10 @@
+.bookAppointment{
+    height: 50vh;
+    width: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: centers;
+    flex-direction: column;
+    text-align: center;
+    color: aliceblue;
+}

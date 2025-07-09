@@ -1,0 +1,60 @@
+/* TURNERO\Frontend\src\components\login\login.css */
+.login-container {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 300;
+	margin: 2.5em auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+  }
+  
+  .login-card {
+	background-color: #535c68;
+	color: #fff;
+	border-radius: 1.2rem;
+	padding: 2rem;
+	width: 100%;
+	max-width: 400px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-title {
+	font-size: 2em;
+	font-weight: 600;
+	margin-bottom: 1.5rem;
+	text-align: center;
+  }
+  
+  .login-button {
+	background-color: #f0932b;
+	border: none;
+	border-radius: 0.5rem;
+	padding: 0.75rem;
+	width: 100%;
+	font-size: 1.125em;
+	font-weight: 300;
+	transition: background-color 0.3s ease;
+  }
+  
+  .login-button:hover {
+	background-color: #ff7979;
+  }
+  
+  .form-control {
+	background-color: rgba(255, 255, 255, 0.1);
+	border: none;
+	color: #fff;
+	margin-bottom: 1rem;
+  }
+  
+  .form-control::placeholder {
+	color: rgba(255, 255, 255, 0.7);
+  }
+  
+  @media (max-width: 480px) {
+  
+	.login-card {
+	  padding: 1.5rem;
+	}
+  }
