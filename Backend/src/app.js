@@ -8,6 +8,9 @@ import initializePassport from './configs/passport.config.js';
 import passport from 'passport';
 import sessionsRouter from './routes/sessions.router.js';
 import appointmentsRouter from './routes/appointments.router.js';
+import usersRouter from './routes/users.router.js';
+import swaggerUiExpress from 'swagger-ui-express';
+import { swaggerSpecs } from './configs/swagger.js';
 
 //set servidor
 const app = express();
@@ -30,7 +33,9 @@ app.use(passport.initialize());
 
 //router
 app.use('/api/sessions', sessionsRouter); 
-app.use('/api/appointments', appointmentsRouter)
+app.use('/api/appointments', appointmentsRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/docs', swaggerUiExpress.serve, swaggerUiExpress.setup(swaggerSpecs));
 
 //conexión servidor
 const server = app.listen(PORT, () => {

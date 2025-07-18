@@ -1,0 +1,170 @@
+paths:
+  /api/appointments:
+    post:
+      summary: Crear una cita médica
+      tags:
+        - Appointments
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                doctor:
+                  type: string
+                  example: "64aee3f12b4c1f74e1234567"
+                date:
+                  type: string
+                  format: date-time
+                  example: "2025-07-15T10:30:00Z"
+                notes:
+                  type: string
+                  example: "Consulta general"
+      responses:
+        '201':
+          description: Cita creada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Cita creada correctamente"
+                  appointment:
+                    type: object
+                    properties:
+                      _id:
+                        type: string
+                        example: "64b0c34cfcc32145e1234567"
+                      doctor:
+                        type: string
+                        example: "64aee3f12b4c1f74e1234567"
+                      userId:
+                        type: string
+                        example: "64aee4b23b5c1f88e7654321"
+                      date:
+                        type: string
+                        example: "2025-07-15T10:30:00Z"
+                      notes:
+                        type: string
+                        example: "Consulta general"
+        '401':
+          description: No autorizado
+
+    get:
+      summary: Obtener todas las citas (admin)
+      tags:
+        - Appointments
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Lista de todas las citas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Appointment'
+        '401':
+          description: No autorizado
+
+  /api/appointments/user:
+    get:
+      summary: Obtener citas del usuario autenticado
+      tags:
+        - Appointments
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Lista de citas del usuario
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Appointment'
+
+  /api/appointments/{id}:
+    put:
+      summary: Actualizar una cita
+      tags:
+        - Appointments
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            example: "64b0c34cfcc32145e1234567"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date-time
+                  example: "2025-07-20T14:00:00Z"
+                reason:
+                  type: string
+                  example: "Control de resultados"
+      responses:
+        '200':
+          description: Cita actualizada correctamente
+
+    delete:
+      summary: Eliminar una cita
+      tags:
+        - Appointments
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            example: "64b0c34cfcc32145e1234567"
+      responses:
+        '200':
+          description: Cita eliminada correctamente
+
+  /api/appointments/doctors:
+    get:
+      summary: Obtener lista de doctores (admins)
+      tags:
+        - Appointments
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Lista de doctores
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    _id:
+                      type: string
+                      example: "64aee3f12b4c1f74e1234567"
+                    first_name:
+                      type: string
+                      example: "Martín"
+                    last_name:
+                      type: string
+                      example: "Gómez"
+                    email:
+                      type: string
+                      example: "martin.gomez@hospital.com"

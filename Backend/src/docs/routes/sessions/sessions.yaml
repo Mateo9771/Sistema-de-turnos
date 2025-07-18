@@ -1,0 +1,236 @@
+openapi: 3.0.3
+info:
+  title: API de Sesiones
+  description: API para la gestión de autenticación y sesiones de usuarios
+  version: 1.0.0
+paths:
+  /api/sessions/register:
+    post:
+      summary: Registrar un nuevo usuario
+      tags:
+        - Sesiones
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInput'
+            example:
+              first_name: "Carlos"
+              last_name: "Rodríguez"
+              email: "carlos.rodriguez@example.com"
+              age: 35
+              phone: 1122334455
+              password: "securePassword123"
+              role: user
+      responses:
+        '201':
+          description: Usuario registrado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Usuario registrado correctamente"
+        '400':
+          description: Error en el registro (campos faltantes o usuario existente)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: No autorizado para crear un usuario admin
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /api/sessions/login:
+    post:
+      summary: Iniciar sesión
+      tags:
+        - Sesiones
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: Correo electrónico del usuario
+                password:
+                  type: string
+                  description: Contraseña del usuario
+              required:
+                - email
+                - password
+            example:
+              email: "carlos.rodriguez@example.com"
+              password: "securePassword123"
+      responses:
+        '200':
+          description: Inicio de sesión exitoso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    description: Token JWT
+                  redirect:
+                    type: string
+                    description: URL de redirección según el rol del usuario
+        '401':
+          description: Credenciales inválidas o usuario no encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /api/sessions/logout:
+    get:
+      summary: Cerrar sesión
+      tags:
+        - Sesiones
+      responses:
+        '200':
+          description: Sesión cerrada exitosamente (redirección)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: "Sesión cerrada correctamente"
+  /api/sessions/current:
+    get:
+      summary: Obtener datos del usuario autenticado
+      tags:
+        - Sesiones
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Datos del usuario autenticado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: No autenticado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /api/sessions/failRegister:
+    get:
+      summary: Error en el registro
+      tags:
+        - Sesiones
+      responses:
+        '401':
+          description: Fallo en el proceso de registro
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    UserInput:
+      type: object
+      properties:
+        first_name:
+          type: string
+          description: Nombre del usuario
+        last_name:
+          type: string
+          description: Apellido del usuario
+        email:
+          type: string
+          description: Correo electrónico del usuario
+        age:
+          type: integer
+          description: Edad del usuario
+        phone:
+          type: integer
+          description: Número de teléfono del usuario
+        password:
+          type: string
+          description: Contraseña del usuario
+        role:
+          type: string
+          enum: [user, admin]
+          description: Rol del usuario
+      required:
+        - first_name
+        - last_name
+        - email
+        - password
+        - role
+    User:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: Identificador único del usuario
+        first_name:
+          type: string
+          description: Nombre del usuario
+        last_name:
+          type: string
+          description: Apellido del usuario
+        email:
+          type: string
+          description: Correo electrónico del usuario
+        age:
+          type: integer
+          description: Edad del usuario
+        phone:
+          type: integer
+          description: Número de teléfono del usuario
+        role:
+          type: string
+          enum: [user, admin]
+          description: Rol del usuario
+      required:
+        - _id
+        - first_name
+        - last_name
+        - email
+        - role
+    Error:
+      type: object
+      properties:
+        status:
+          type: string
+          example: error
+        error:
+          type: string
+          description: Mensaje de error
+      required:
+        - status
+        - error

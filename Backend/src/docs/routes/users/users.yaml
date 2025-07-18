@@ -1,0 +1,270 @@
+openapi: 3.0.3
+info:
+  title: API de Usuarios
+  description: API para la gestión de usuarios
+  version: 1.0.0
+paths:
+  /api/users:
+    get:
+      summary: Obtener todos los usuarios
+      tags:
+        - Usuarios
+      responses:
+        '200':
+          description: Lista de usuarios obtenida exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  payload:
+                    type: array
+                    items:
+                      $ref: './schemas.yaml#/components/schemas/User'
+              example:
+                status: success
+                payload:
+                  - _id: "507f1f77bcf86cd799439011"
+                    first_name: "Juan"
+                    last_name: "Pérez"
+                    email: "juan.perez@example.com"
+                    age: 30
+                    phone: 1234567890
+                    role: user
+                  - _id: "507f1f77bcf86cd799439012"
+                    first_name: "María"
+                    last_name: "Gómez"
+                    email: "maria.gomez@example.com"
+                    age: 25
+                    phone: 9876543210
+                    role: admin
+        '500':
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: './schemas.yaml#/components/schemas/Error'
+              example:
+                status: error
+                message: "Error interno del servidor"
+    post:
+      summary: Crear un nuevo usuario
+      tags:
+        - Usuarios
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './schemas.yaml#/components/schemas/UserInput'
+            example:
+              first_name: "Ana"
+              last_name: "López"
+              email: "ana.lopez@example.com"
+              age: 28
+              phone: 5555555555
+              password: "securePassword123"
+              role: user
+      responses:
+        '201':
+          description: Usuario creado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  payload:
+                    $ref: './schemas.yaml#/components/schemas/User'
+              example:
+                status: success
+                payload:
+                  _id: "507f1f77bcf86cd799439013"
+                  first_name: "Ana"
+                  last_name: "López"
+                  email: "ana.lopez@example.com"
+                  age: 28
+                  phone: 5555555555
+                  role: user
+        '500':
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: './schemas.yaml#/components/schemas/Error'
+              example:
+                status: error
+                message: "Error al crear el usuario"
+  /api/users/{uid}:
+    get:
+      summary: Obtener un usuario por ID
+      tags:
+        - Usuarios
+      parameters:
+        - in: path
+          name: uid
+          required: true
+          schema:
+            type: string
+          description: ID del usuario
+          example: "507f1f77bcf86cd799439011"
+      responses:
+        '200':
+          description: Usuario obtenido exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  payload:
+                    $ref: './schemas.yaml#/components/schemas/User'
+              example:
+                status: success
+                payload:
+                  _id: "507f1f77bcf86cd799439011"
+                  first_name: "Juan"
+                  last_name: "Pérez"
+                  email: "juan.perez@example.com"
+                  age: 30
+                  phone: 1234567890
+                  role: user
+        '404':
+          description: Usuario no encontrado
+          content:
+            application/json:
+              schema:
+                $ref: './schemas.yaml#/components/schemas/Error'
+              example:
+                status: error
+                message: "Usuario no encontrado"
+        '500':
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: './schemas.yaml#/components/schemas/Error'
+              example:
+                status: error
+                message: "Error interno del servidor"
+    put:
+      summary: Actualizar un usuario por ID
+      tags:
+        - Usuarios
+      parameters:
+        - in: path
+          name: uid
+          required: true
+          schema:
+            type: string
+          description: ID del usuario
+          example: "507f1f77bcf86cd799439011"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './schemas.yaml#/components/schemas/UserInput'
+            example:
+              first_name: "Juan"
+              last_name: "Pérez"
+              email: "juan.perez@example.com"
+              age: 31
+              phone: 1234567890
+              password: "newSecurePassword123"
+              role: admin
+      responses:
+        '200':
+          description: Usuario actualizado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  payload:
+                    $ref: './schemas.yaml#/components/schemas/User'
+              example:
+                status: success
+                payload:
+                  _id: "507f1f77bcf86cd799439011"
+                  first_name: "Juan"
+                  last_name: "Pérez"
+                  email: "juan.perez@example.com"
+                  age: 31
+                  phone: 1234567890
+                  role: admin
+        '404':
+          description: Usuario no encontrado
+          content:
+            application/json:
+              schema:
+                $ref: './schemas.yaml#/components/schemas/Error'
+              example:
+                status: error
+                message: "Usuario no encontrado"
+        '500':
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: './schemas.yaml#/components/schemas/Error'
+              example:
+                status: error
+                message: "Error al actualizar el usuario"
+    delete:
+      summary: Eliminar un usuario por ID
+      tags:
+        - Usuarios
+      parameters:
+        - in: path
+          name: uid
+          required: true
+          schema:
+            type: string
+          description: ID del usuario
+          example: "507f1f77bcf86cd799439011"
+      responses:
+        '200':
+          description: Usuario eliminado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: "Usuario eliminado correctamente"
+              example:
+                status: success
+                message: "Usuario eliminado correctamente"
+        '404':
+          description: Usuario no encontrado
+          content:
+            application/json:
+              schema:
+                $ref: './schemas.yaml#/components/schemas/Error'
+              example:
+                status: error
+                message: "Usuario no encontrado"
+        '500':
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: './schemas.yaml#/components/schemas/Error'
+              example:
+                status: error
+                message: "Error al eliminar el usuario"
