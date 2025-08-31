@@ -1,10 +1,8 @@
-.bookAppointment{
-    height: 50vh;
-    width: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: centers;
-    flex-direction: column;
-    text-align: center;
-    color: aliceblue;
+.book-appointment-container{
+    background-color: #2F4673;
+    color: #fff;
+    border-radius: 1.2rem;
+    box-shadow: 0 7px 8px rgba(0, 0, 0, 2);
+    padding: 2rem;
+	width: 100%;
 }

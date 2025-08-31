@@ -1,8 +1,4 @@
-.appointmentList{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
+.appointment-list-card{
+    background-color: #2F4673;
+    color: #fff;
 }

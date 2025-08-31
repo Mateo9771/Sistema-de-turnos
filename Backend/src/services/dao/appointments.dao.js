@@ -16,9 +16,14 @@ class AppointmentsDAO {
         return await appointmentsModel.find().populate('user doctor');
     }
 
-    async findAppointmentByDoctorAndDate(doctorId, date) {
-        return await appointmentsModel.findOne({ doctor: doctorId, date });
+     async findAppointmentByDoctorAndDate(doctorId, date) {
+    // Asegurar que la fecha sea un objeto Date
+    const appointmentDate = new Date(date);
+    if (isNaN(appointmentDate.getTime())) {
+      throw new Error('Fecha inválida');
     }
+    return await appointmentsModel.findOne({ doctor: doctorId, date: appointmentDate });
+  }
 
     async updateAppointment(id, updateData) {
         return await appointmentsModel.findByIdAndUpdate(id, updateData, { new: true }).populate('user doctor');
@@ -29,8 +34,13 @@ class AppointmentsDAO {
     }
 
     async isAdmin(userId) {
+        try {
         const user = await usersModel.findById(userId);
         return user && user.role === 'admin';
+    } catch (error) {
+        console.error('Error al verificar si el usuario es admin:', error);
+        throw new Error('Error al verificar el rol del doctor');
+    }
     }
 }
 

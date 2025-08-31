@@ -5,11 +5,15 @@ import { AppointmentDTO } from '../services/dto/appointments.dto.js';
 
 export const createAppointment = async (req, res) => {
     try {
+        console.log('Datos recibidos:', req.body);
+        console.log('Usuario autenticado:', req.user);
+        
         if (!req.user || !req.user.id) {
             return res.status(401).json({ message: 'Usuario no autenticado' });
         }
 
-        const { doctor, date, notes } = req.body;
+        const { doctor, date, notes, patient_name } = req.body;
+
         if (!doctor || !date) {
             return res.status(400).json({ message: 'Faltan datos requeridos' });
         }
@@ -19,13 +23,15 @@ export const createAppointment = async (req, res) => {
         }
 
          // Validar fecha
-        if (!date || isNaN(new Date(date).getTime())) {
+         const appointmentDate = new Date(date);
+        if (!date || isNaN(appointmentDate.getTime())) {
         return res.status(400).json({ message: 'Fecha inválida' });
         }
 
         // Validar que el doctor sea un admin
-        const isAdmin = await appointmentsDAO.isAdmin(doctor);
-        if (!isAdmin) {
+         const isAdminDoctor = await appointmentsDAO.isAdmin(doctor);
+         console.log('Resultado de isAdminDoctor:', isAdminDoctor);
+        if (!isAdminDoctor) {
             return res.status(400).json({ message: 'El doctor especificado no es válido' });
         }
 
@@ -35,10 +41,20 @@ export const createAppointment = async (req, res) => {
             return res.status(400).json({ message: 'El horario ya está ocupado' });
         }
 
+        let finalPatientName;
+        if (req.user.role === 'admin') {
+            // Los administradores pueden especificar patient_name o dejarlo como null
+            finalPatientName = patient_name || null;
+        } else {
+            // Los usuarios no administradores usan su nombre por defecto
+            finalPatientName = patient_name || req.user.name || 'Paciente Anónimo';
+        }
+
         const appointmentData = AppointmentDTO.fromRequest({
             user: req.user.id,
+            patient_name: finalPatientName,
             doctor,
-            date,
+            date: appointmentDate,
             notes
         });
 
@@ -65,16 +81,29 @@ export const getUserAppointment = async (req, res) => {
 
 export const getAllAppointments = async (req, res) => {
     try {
+        // Verificar si el usuario tiene el rol de admin
+        console.log('Usuario autenticado:', req.user); // Agrega esto para depuración
+        if (req.user.role !== 'admin') {
+            return res.status(403).json({ message: 'Acceso denegado' });
+        }
+
         const { page = 1, limit = 10 } = req.query;
-        const appointments = await appointmentsDAO.findAllAppointments()
-            .skip((page - 1) * limit)
-            .limit(parseInt(limit));
-            console.log('Turnos obtenidos:', appointments);
-        res.status(200).json(appointments.map(app => new AppointmentDTO(app)));
+        
+        // Traer todos los turnos
+        const appointments = await appointmentsDAO.findAllAppointments();
+
+        // Paginación de los resultados
+        const start = (page - 1) * limit;
+        const end = start + parseInt(limit);
+        const paginated = appointments.slice(start, end);  // Pagina los turnos
+
+        // Devolver los turnos paginados
+        res.status(200).json(paginated.map(app => new AppointmentDTO(app)));
     } catch (error) {
         res.status(500).json({ message: 'Error al obtener turnos', error: error.message });
     }
 };
+
 
 export const updateAppointment = async (req, res) => {
     try {
@@ -88,7 +117,14 @@ export const updateAppointment = async (req, res) => {
             }
         }
 
-        const updateData = AppointmentDTO.fromRequest(req.body);
+          let updateData = { ...req.body };
+            if (date) {
+            const appointmentDate = new Date(date);
+            if (isNaN(appointmentDate.getTime())) {
+            return res.status(400).json({ message: 'Fecha inválida' });
+      }
+      updateData.date = appointmentDate;
+    }
         const appointment = await appointmentsDAO.updateAppointment(id, updateData);
         if (!appointment) {
             return res.status(404).json({ message: 'Turno no encontrado' });

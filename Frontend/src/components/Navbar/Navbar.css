@@ -1,17 +1,4 @@
-/* TURNERO\Frontend\src\components\Navbar\Navbar.css */
-.navbar {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: 300;
-  }
-  
-  .navbar-brand, .nav-link {
-    color: #fff !important;
-  }
-  
-  .nav-link:hover {
-    color: #f0932b !important;
-  }
-  
-  .navbar button {
-    border-radius: 0.5rem;
-  }
+.navbar-custom{
+    background-color: #2F4673;
+    color: #fff;
+}

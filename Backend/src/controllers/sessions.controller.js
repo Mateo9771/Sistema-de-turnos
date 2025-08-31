@@ -27,6 +27,13 @@ export const register = async (req,res) => {
             }
         }
 
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if(!passwordRegex.test(password)){
+            return res.status(400).json(
+                {message:'La contraseña debe tener al menos 8 caracteres, incluyendo una letra mayúscula, una letra minúscula, un número y un carácter especial.'
+                })
+        }
+
        
         const hashedPassword = createHash(password);
 
@@ -65,7 +72,7 @@ export const login = async (req, res) => {
         }
 
         const tokenUser = new usersDTO(user);
-        const  access_token = generateJWToken(tokenUser);
+        const access_token = generateJWToken(tokenUser);
 
         res.cookie('JwtCookieToken', access_token, {
             httpOnly: true,
@@ -91,8 +98,12 @@ export const login = async (req, res) => {
 }
 
 export const logout = (req, res) => {
-    res.clearCookie('JwtCookieToken');
-    res.redirect('/api/usersViews/login');
+    res.clearCookie('JwtCookieToken',{
+        httpOnly: true,
+        secure: false,
+        sameSite: 'Lax'
+    });
+    res.status(200).json({ message: 'Sesión cerrada correctamente' });
 }
 
 export const getCurrent = (req, res) => {

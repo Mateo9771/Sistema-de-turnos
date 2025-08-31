@@ -9,11 +9,6 @@ const Home = () => {
   const { role } = useContext(RoleContext);
   const navigate = useNavigate();
 
-  if (!['admin', 'user'].includes(role)) {
-    navigate('/');
-    return null;
-  }
-
   return (
     <Container fluid className="home-container">
       <Row className="justify-content-center">

@@ -1,21 +1,21 @@
 // TURNERO\Frontend\src\components\Navbar\Navbar.jsx
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Navbar as BootstrapNavbar, Nav, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { RoleContext } from '../../App';
 import './Navbar.css';
 
 const Navbar = () => {
-  const { role, setRole } = useContext(RoleContext);
+  const { role, handleLogout } = useContext(RoleContext);
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    setRole(null);
-    navigate('/');
+  const onLogout = async () => {
+    await handleLogout();
+    navigate('/', { replace: true });
   };
 
   return (
-    <BootstrapNavbar bg="dark" variant="dark" expand="lg" className="mb-4">
+    <BootstrapNavbar  variant="dark" expand="lg" className="mb-4 navbar-custom">
       <BootstrapNavbar.Brand href="/home">Turnero</BootstrapNavbar.Brand>
       <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
       <BootstrapNavbar.Collapse id="basic-navbar-nav">
@@ -34,7 +34,7 @@ const Navbar = () => {
           )}
         </Nav>
         {role && (
-          <Button variant="outline-light" onClick={handleLogout}>
+          <Button variant="outline-light" onClick={onLogout}>
             Cerrar Sesión
           </Button>
         )}

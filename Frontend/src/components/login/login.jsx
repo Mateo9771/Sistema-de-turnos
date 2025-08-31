@@ -1,14 +1,13 @@
-  //TURNERO\Frontend\src\components\login\login.jsx
 // TURNERO\Frontend\src\components\login\login.jsx
-import React, { useState, useContext } from 'react';
-import { Container, Form, Button, Card, ToggleButton } from 'react-bootstrap';
+import React, { useState, useContext, useEffect } from 'react';
+import { Container, Form, Button, Card, ToggleButton, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import axios from '../../api/axios.api.jsx';
 import { RoleContext } from '../../App';
 import './login.css';
 
 const Login = () => {
-  const { setRole } = useContext(RoleContext);
+  const { role, setRole, setIsAuthenticated } = useContext(RoleContext);
   const navigate = useNavigate();
   const [isSignup, setIsSignup] = useState(true);
   const [form, setForm] = useState({
@@ -19,25 +18,43 @@ const Login = () => {
     password: '',
     age: '',
   });
+  const [error, setError] = useState(null);
+  
+
+   // Redirigir a usuarios autenticados fuera de la página de login
+  useEffect(() => {
+    if (role) {
+      navigate('/home', { replace: true }); // Usar replace para no añadir al historial
+    }
+  }, [role, navigate]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const validatePassword = (password) => {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return passwordRegex.test(password);
+  };
+
   const handleSignup = async (e) => {
     e.preventDefault();
+    setError(null); // Limpiar error previo
     // Validaciones básicas
-    if (form.password.length < 6) {
-      alert('La contraseña debe tener al menos 6 caracteres.');
+    if (!/\S+@\S+\.\S+/.test(form.email)) {
+      setError('Por favor, ingrese un email válido.');
       return;
     }
-    if (!/\S+@\S+\.\S+/.test(form.email)) {
-      alert('Por favor, ingrese un email válido.');
+    if (!validatePassword(form.password)) {
+      setError(
+        'La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una minúscula, un número y un carácter especial (!@#$%^&*).'
+      );
       return;
     }
     const formWithRole = { ...form, role: 'user' };
     try {
-      await axios.post('/sessions/register', formWithRole);
+      await axios.post('/sessions/register', formWithRole, { withCredentials: true });
+      setError(null); // Limpiar error
       alert('Registro exitoso. Ahora puedes iniciar sesión.');
       setIsSignup(false);
       setForm({ first_name: '', last_name: '', email: '', phone: '', password: '', age: '' });
@@ -47,28 +64,27 @@ const Login = () => {
     }
   };
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post('/sessions/login', {
-        email: form.email,
-        password: form.password,
-      });
-      const { data } = await axios.get('/sessions/current');
-      if (!data || !data.role) {
-        throw new Error('Respuesta del servidor inválida: rol no encontrado');
-      }
-      setRole(data.role); // Establecer el rol en el contexto
-      navigate('/home');
-    } catch (err) {
-      console.error(err);
-      if (err.response?.status === 401) {
-        alert('Sesión no válida. Por favor, intenta iniciar sesión nuevamente.');
-      } else {
-        alert('Error al iniciar sesión: ' + (err.response?.data?.message || 'Credenciales inválidas'));
-      }
-    }
-  };
+   const handleLogin = async (e) => {
+        e.preventDefault();
+        setError(null);
+        try {
+            const response = await axios.post(
+                '/sessions/login',
+                { email: form.email, password: form.password },
+                { withCredentials: true }
+            );
+            console.log('Respuesta de login:', response.data);
+            const { token, role, redirect } = response.data;
+            localStorage.setItem('token', token);
+            localStorage.setItem('userRole', role);
+            setRole(role);
+            setIsAuthenticated(true);
+            navigate(redirect || '/home', { replace: true });
+        } catch (err) {
+            console.error('Error en login:', err.response?.data);
+            setError(err.response?.data?.message || 'Credenciales inválidas');
+        }
+    };
 
   return (
     <Container fluid className="login-container">
@@ -116,6 +132,7 @@ const Login = () => {
                   value={form.email}
                   onChange={handleChange}
                   required
+                  autoComplete="username" 
                 />
               </Form.Group>
               <Form.Group className="mb-3">
@@ -145,6 +162,7 @@ const Login = () => {
                   placeholder="Contraseña"
                   value={form.password}
                   onChange={handleChange}
+                  autoComplete="new-password" 
                   required
                 />
               </Form.Group>
@@ -162,6 +180,7 @@ const Login = () => {
                   value={form.email}
                   onChange={handleChange}
                   required
+                  autoComplete="username"
                 />
               </Form.Group>
               <Form.Group className="mb-3">
@@ -171,6 +190,7 @@ const Login = () => {
                   placeholder="Contraseña"
                   value={form.password}
                   onChange={handleChange}
+                  autoComplete="current-password"
                   required
                 />
               </Form.Group>
@@ -179,6 +199,7 @@ const Login = () => {
               </Button>
             </Form>
           )}
+          {error && <div className="error-message">{error}</div>}
         </Card.Body>
       </Card>
     </Container>
