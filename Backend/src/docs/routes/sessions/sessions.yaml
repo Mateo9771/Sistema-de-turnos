@@ -228,9 +228,9 @@ components:
         status:
           type: string
           example: error
-        error:
+        message:
           type: string
-          description: Mensaje de error
+          example: "Mensaje de error"
       required:
         - status
-        - error
+        - message

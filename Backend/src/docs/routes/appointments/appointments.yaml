@@ -1,3 +1,8 @@
+openapi: 3.0.3
+info:
+  title: API de Citas
+  description: API para la gestión de citas médicas
+  version: 1.0.0
 paths:
   /api/appointments:
     post:
@@ -35,26 +40,13 @@ paths:
                     type: string
                     example: "Cita creada correctamente"
                   appointment:
-                    type: object
-                    properties:
-                      _id:
-                        type: string
-                        example: "64b0c34cfcc32145e1234567"
-                      doctor:
-                        type: string
-                        example: "64aee3f12b4c1f74e1234567"
-                      userId:
-                        type: string
-                        example: "64aee4b23b5c1f88e7654321"
-                      date:
-                        type: string
-                        example: "2025-07-15T10:30:00Z"
-                      notes:
-                        type: string
-                        example: "Consulta general"
+                    $ref: '#/components/schemas/Appointment'
         '401':
           description: No autorizado
-
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
     get:
       summary: Obtener todas las citas (admin)
       tags:
@@ -72,7 +64,10 @@ paths:
                   $ref: '#/components/schemas/Appointment'
         '401':
           description: No autorizado
-
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /api/appointments/user:
     get:
       summary: Obtener citas del usuario autenticado
@@ -89,7 +84,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Appointment'
-
+        '401':
+          description: No autorizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /api/appointments/{id}:
     put:
       summary: Actualizar una cita
@@ -121,7 +121,28 @@ paths:
       responses:
         '200':
           description: Cita actualizada correctamente
-
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Cita actualizada correctamente"
+                  appointment:
+                    $ref: '#/components/schemas/Appointment'
+        '401':
+          description: No autorizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Cita no encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
     delete:
       summary: Eliminar una cita
       tags:
@@ -138,7 +159,26 @@ paths:
       responses:
         '200':
           description: Cita eliminada correctamente
-
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Cita eliminada correctamente"
+        '401':
+          description: No autorizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Cita no encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /api/appointments/doctors:
     get:
       summary: Obtener lista de doctores (admins)
@@ -168,3 +208,61 @@ paths:
                     email:
                       type: string
                       example: "martin.gomez@hospital.com"
+        '401':
+          description: No autorizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Appointment:
+      type: object
+      properties:
+        _id:
+          type: string
+          example: "6501c2f7a8b9d1b987654321"
+        user:
+          type: string
+          description: ID del paciente (ref a User)
+          example: "64f1c2b7e8f1c9a123456789"
+        patient_name:
+          type: string
+          nullable: true
+          example: "Pedro Gómez"
+        doctor:
+          type: string
+          description: ID del doctor (ref a User con role admin)
+          example: "64f1c2b7e8f1c9a987654321"
+        date:
+          type: string
+          format: date-time
+          example: "2025-09-01T14:30:00Z"
+        status:
+          type: string
+          enum: [pending, confirmed, cancelled]
+          example: "pending"
+        notes:
+          type: string
+          example: "Paciente con antecedentes de alergia"
+        lastNotified:
+          type: string
+          format: date-time
+          example: "2025-09-01T12:00:00Z"
+    Error:
+      type: object
+      properties:
+        status:
+          type: string
+          example: error
+        message:
+          type: string
+          example: "Mensaje de error"
+      required:
+        - status
+        - message

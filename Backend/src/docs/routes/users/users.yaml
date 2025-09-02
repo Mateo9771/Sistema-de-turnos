@@ -23,7 +23,7 @@ paths:
                   payload:
                     type: array
                     items:
-                      $ref: './schemas.yaml#/components/schemas/User'
+                      $ref: '#/components/schemas/User'
               example:
                 status: success
                 payload:
@@ -46,7 +46,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './schemas.yaml#/components/schemas/Error'
+                $ref: '#/components/schemas/Error'
               example:
                 status: error
                 message: "Error interno del servidor"
@@ -59,7 +59,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: './schemas.yaml#/components/schemas/UserInput'
+              $ref: '#/components/schemas/UserInput'
             example:
               first_name: "Ana"
               last_name: "López"
@@ -80,7 +80,7 @@ paths:
                     type: string
                     example: success
                   payload:
-                    $ref: './schemas.yaml#/components/schemas/User'
+                    $ref: '#/components/schemas/User'
               example:
                 status: success
                 payload:
@@ -96,7 +96,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './schemas.yaml#/components/schemas/Error'
+                $ref: '#/components/schemas/Error'
               example:
                 status: error
                 message: "Error al crear el usuario"
@@ -125,7 +125,7 @@ paths:
                     type: string
                     example: success
                   payload:
-                    $ref: './schemas.yaml#/components/schemas/User'
+                    $ref: '#/components/schemas/User'
               example:
                 status: success
                 payload:
@@ -141,7 +141,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './schemas.yaml#/components/schemas/Error'
+                $ref: '#/components/schemas/Error'
               example:
                 status: error
                 message: "Usuario no encontrado"
@@ -150,7 +150,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './schemas.yaml#/components/schemas/Error'
+                $ref: '#/components/schemas/Error'
               example:
                 status: error
                 message: "Error interno del servidor"
@@ -171,7 +171,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: './schemas.yaml#/components/schemas/UserInput'
+              $ref: '#/components/schemas/UserInput'
             example:
               first_name: "Juan"
               last_name: "Pérez"
@@ -192,7 +192,7 @@ paths:
                     type: string
                     example: success
                   payload:
-                    $ref: './schemas.yaml#/components/schemas/User'
+                    $ref: '#/components/schemas/User'
               example:
                 status: success
                 payload:
@@ -208,7 +208,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './schemas.yaml#/components/schemas/Error'
+                $ref: '#/components/schemas/Error'
               example:
                 status: error
                 message: "Usuario no encontrado"
@@ -217,7 +217,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './schemas.yaml#/components/schemas/Error'
+                $ref: '#/components/schemas/Error'
               example:
                 status: error
                 message: "Error al actualizar el usuario"
@@ -255,7 +255,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './schemas.yaml#/components/schemas/Error'
+                $ref: '#/components/schemas/Error'
               example:
                 status: error
                 message: "Usuario no encontrado"
@@ -264,7 +264,86 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './schemas.yaml#/components/schemas/Error'
+                $ref: '#/components/schemas/Error'
               example:
                 status: error
                 message: "Error al eliminar el usuario"
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        _id:
+          type: string
+          example: "64f1c2b7e8f1c9a123456789"
+        first_name:
+          type: string
+          example: "Mateo"
+        last_name:
+          type: string
+          example: "Baldoni"
+        email:
+          type: string
+          format: email
+          example: "mateo@mail.com"
+        age:
+          type: integer
+          example: 28
+        phone:
+          type: integer
+          example: 1122334455
+        password:
+          type: string
+          example: "hashedpassword123"
+        role:
+          type: string
+          enum: [user, admin]
+          example: "user"
+        resetPasswordToken:
+          type: string
+          nullable: true
+          example: null
+        resetPasswordExpires:
+          type: string
+          format: date-time
+          example: null
+    UserInput:
+      type: object
+      required:
+        - first_name
+        - last_name
+        - email
+        - age
+        - phone
+        - password
+      properties:
+        first_name:
+          type: string
+          example: "Juan"
+        last_name:
+          type: string
+          example: "Pérez"
+        email:
+          type: string
+          example: "juanperez@mail.com"
+        age:
+          type: integer
+          example: 32
+        phone:
+          type: integer
+          example: 1133445566
+        password:
+          type: string
+          example: "securePassword123"
+    Error:
+      type: object
+      properties:
+        status:
+          type: string
+          example: error
+        message:
+          type: string
+          example: "Mensaje de error"
+      required:
+        - status
+        - message
