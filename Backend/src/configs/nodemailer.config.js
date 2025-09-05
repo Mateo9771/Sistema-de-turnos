@@ -1,15 +1,27 @@
 //TURNERO\Backend\src\configs\nodemailer.config.js
 import nodemailer from 'nodemailer';
 import config from './configs.js';
+import logger from '../utils/logger.js';
 
+// Configuración del transporte de Nodemailer
 const transporter = nodemailer.createTransport({
-  service: 'gmail', // Puedes usar otro servicio como Outlook, SendGrid, etc.
+  service: 'gmail',
   auth: {
-    user: config.EMAIL_USER, // Correo desde el que enviarás los emails
-    pass: config.EMAIL_PASS, // Contraseña o App Password si usas Gmail con 2FA
+    user: config.EMAIL_USER,
+    pass: config.EMAIL_PASS, 
   },
 });
 
+// Verificación de la configuración del transporte
+transporter.verify((error, success) => {
+    if (error) {
+        logger.error(`Error al verificar la configuración de Nodemailer: ${error.message}`);
+    } else {
+        logger.info('Configuración de Nodemailer verificada exitosamente');
+    }
+});
+
+// Función para enviar correo de recordatorio de turno
 export const sendAppointmentReminder = async (userEmail, appointmentDetails) => {
   const mailOptions = {
     from: config.EMAIL_USER,
@@ -29,10 +41,12 @@ export const sendAppointmentReminder = async (userEmail, appointmentDetails) => 
   };
 
   try {
-    await transporter.sendMail(mailOptions);
-    console.log(`Correo enviado a ${userEmail}`);
+      logger.info(`Enviando recordatorio de turno a: ${userEmail}, Fecha: ${appointmentDetails.date}`);
+      await transporter.sendMail(mailOptions);
+      logger.info(`Correo enviado exitosamente a: ${userEmail}`);
   } catch (error) {
-    console.error('Error al enviar el correo:', error);
+      logger.error(`Error al enviar correo a ${userEmail}: ${error.message}`);
+      throw new Error(`Error al enviar correo: ${error.message}`);
   }
 };
 

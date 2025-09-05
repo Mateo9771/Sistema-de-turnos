@@ -6,8 +6,8 @@ import { RoleContext } from '../../App';
 import './Home.css';
 
 const Home = () => {
-  const { role } = useContext(RoleContext);
-  const navigate = useNavigate();
+  const { role } = useContext(RoleContext);// Obtener el rol del usuario desde el contexto
+  const navigate = useNavigate();// Hook para navegación programática
 
   return (
     <Container fluid className="home-container">

@@ -1,0 +1,31 @@
+2025-09-02 23:30:38 [[31MERROR[39M]: Error al obtener turnos: query is not defined
+2025-09-02 23:30:38 [[31MERROR[39M]: Error al obtener turnos: query is not defined
+2025-09-02 23:30:51 [[31MERROR[39M]: Error al obtener turnos: query is not defined
+2025-09-02 23:30:51 [[31MERROR[39M]: Error al obtener turnos: query is not defined
+2025-09-02 23:38:26 [[31MERROR[39M]: Error al obtener turnos: query is not defined
+2025-09-02 23:38:26 [[31MERROR[39M]: Error al obtener turnos: query is not defined
+2025-09-02 23:38:29 [[31MERROR[39M]: Error al obtener turnos: query is not defined
+2025-09-02 23:38:29 [[31MERROR[39M]: Error al obtener turnos: query is not defined
+2025-09-02 23:41:06 [[31MERROR[39M]: Error al obtener turnos: query is not defined
+2025-09-02 23:41:06 [[31MERROR[39M]: Error al obtener turnos: query is not defined
+2025-09-02 23:42:08 [[31MERROR[39M]: Error al obtener turnos: query is not defined
+2025-09-02 23:42:08 [[31MERROR[39M]: Error al obtener turnos: query is not defined
+2025-09-02 23:44:44 [[31MERROR[39M]: Error al verificar si el usuario es admin: mongoose is not defined
+2025-09-02 23:44:44 [[31MERROR[39M]: Error al crear turno: Error al verificar el rol del doctor
+2025-09-02 23:44:55 [[31MERROR[39M]: Error al verificar si el usuario es admin: mongoose is not defined
+2025-09-02 23:44:55 [[31MERROR[39M]: Error al crear turno: Error al verificar el rol del doctor
+2025-09-03 00:10:38 [[31MERROR[39M]: Error en el registro: logger is not defined
+2025-09-03 00:10:57 [[31MERROR[39M]: Error en el registro: logger is not defined
+2025-09-03 00:17:00 [[31MERROR[39M]: Error en el registro: logger is not defined, Stack: ReferenceError: logger is not defined
+    at createHash (file:///C:/Proyectos/Trabajos/TURNERO/Backend/src/utils/password.js:12:9)
+    at register (file:///C:/Proyectos/Trabajos/TURNERO/Backend/src/controllers/sessions.controller.js:57:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-09-03 19:26:03 [[31MERROR[39M]: Error en el registro: logger is not defined
+2025-09-04 19:59:13 [[31MERROR[39M]: ID de usuario inválido: undefined
+2025-09-04 19:59:13 [[31MERROR[39M]: Error al verificar si el usuario es admin: ID de usuario inválido
+2025-09-04 19:59:13 [[31MERROR[39M]: ID de usuario inválido: undefined
+2025-09-04 19:59:13 [[31MERROR[39M]: Error al verificar si el usuario es admin: ID de usuario inválido
+2025-09-04 19:59:32 [[31MERROR[39M]: ID de usuario inválido: undefined
+2025-09-04 19:59:32 [[31MERROR[39M]: Error al verificar si el usuario es admin: ID de usuario inválido
+2025-09-04 19:59:32 [[31MERROR[39M]: ID de usuario inválido: undefined
+2025-09-04 19:59:32 [[31MERROR[39M]: Error al verificar si el usuario es admin: ID de usuario inválido

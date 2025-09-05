@@ -7,18 +7,19 @@ import { RoleContext } from '../../App.jsx';
 import './BookAppointment.css'
 
 const BookAppointment = () => {
-    const { role } = useContext(RoleContext); 
-    const navigate = useNavigate()
+    const { role } = useContext(RoleContext); // Obtener el rol del usuario desde el contexto
+    const navigate = useNavigate()//para redirigir
     const [form, setForm] = useState({
         doctor:'',
         date:'',
         time: '08:00', 
         notes:'',
         patient_name:'',
-    });
+    });//estado para el formulario
 
     const [doctors, setDoctors] = useState([]) //almacenar la lista de doctores
 
+    // Zona horaria local
     const TIME_ZONE = 'America/Argentina/Buenos_Aires';
 
      // Generar opciones de hora de 08:00 a 17:00 (cada 30 minutos)
@@ -30,7 +31,7 @@ const BookAppointment = () => {
                 times.push(`${hour.toString().padStart(2, '0')}:30`);
             }
         }
-        return times; // ['08:00', '08:30', '09:00', ..., '17:00']
+        return times;
     };
 
     //obtener lista de doctores del back
@@ -45,13 +46,12 @@ const BookAppointment = () => {
         };
         fetchDoctors()
     }, []);
-
+    // Manejar cambios en los campos del formulario
      const handleChange = (e) => {
         const { name, value } = e.target;
         setForm((prev) => {
             const newForm = { ...prev, [name]: value };
 
-            // Si se cambia la fecha o la hora, combinarlas para depuración
             if (name === 'date' || name === 'time') {
                 const dateStr = name === 'date' ? value : prev.date;
                 const timeStr = name === 'time' ? value : prev.time;
@@ -66,11 +66,10 @@ const BookAppointment = () => {
             return newForm;
         });
     };
-
+    // Manejar el envío del formulario
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Combinar fecha y hora
             if (!form.date || !form.time) {
                 alert('Por favor selecciona una fecha y hora');
                 return;
@@ -91,7 +90,6 @@ const BookAppointment = () => {
                 doctor: form.doctor,
                 date: utcDate,
                 notes: form.notes,
-                // Solo incluir patient_name si el usuario es admin y lo especificó
                 ...(role === 'admin' && form.patient_name ? { patient_name: form.patient_name } : {}),
             };
 
@@ -160,7 +158,7 @@ const BookAppointment = () => {
                                     <Form.Control
                                         type="date"
                                         name="date"
-                                        value={form.date} // Usar form.date directamente
+                                        value={form.date}
                                         onChange={handleChange}
                                         required
                                         min={format(new Date(), 'yyyy-MM-dd')} // Solo fechas futuras

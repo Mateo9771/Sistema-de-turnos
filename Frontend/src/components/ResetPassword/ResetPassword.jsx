@@ -3,16 +3,16 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const ResetPassword = () => {
-    const { token } = useParams();
-    const [newPassword, setNewPassword] = useState('');
-    const [message, setMessage] = useState('');
-    const [error, setError] = useState('');
-
+    const { token } = useParams();// Obtener el token de la URL
+    const [newPassword, setNewPassword] = useState('');// Estado para la nueva contraseña
+    const [message, setMessage] = useState('');// Estado para mensajes de éxito
+    const [error, setError] = useState('');// Estado para mensajes de error
+    // Validar la contraseña con una expresión regular
     const validatePassword = (password) => {
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
         return passwordRegex.test(password);
     };
-
+    // Manejar el envío del formulario
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!validatePassword(newPassword)) {

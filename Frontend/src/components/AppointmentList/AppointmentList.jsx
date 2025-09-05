@@ -1,33 +1,54 @@
-import {useState, useEffect, useContext, useMemo} from 'react';
+import { useState, useEffect, useContext, useMemo } from 'react';
 import axios from '../../api/axios.api.jsx';
 import { Container, Row, Col, Card, Table, Form, Button } from 'react-bootstrap';
-import './AppointmentList.css'
+import './AppointmentList.css';
 import { RoleContext } from '../../App.jsx';
 
 const AppointmentList = () => {
-    const [appointments, setAppointments] = useState([])
+    const [appointments, setAppointments] = useState([]);
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
+    const [page, setPage] = useState(1);
+    const [totalAppointments, setTotalAppointments] = useState(0);
+    const [limit] = useState(10);
     const { role } = useContext(RoleContext);
 
-   useEffect(() => {
-        console.log('Role actual:', role); // Para depuración
+    useEffect(() => {
+        console.log('Role actual:', role);
         const fetchAppointments = async () => {
-            try{
-                const endpoint = role === 'admin' ? '/appointments' : '/appointments/user';
-                console.log('Endpoint usado:', endpoint); 
-                const {data} = await axios.get (endpoint);
+            try {
+                let endpoint = role === 'admin' 
+                    ? `/appointments?page=${page}&limit=${limit}`
+                    : '/appointments/user';
+                
+                // Añadir parámetros de filtro para admin
+                if (role === 'admin') {
+                    const params = new URLSearchParams({ page, limit });
+                    if (startDate) params.append('startDate', startDate);
+                    if (endDate) params.append('endDate', endDate);
+                    if (searchQuery) params.append('searchQuery', searchQuery);
+                    endpoint = `/appointments?${params.toString()}`;
+                }
+
+                console.log('Endpoint usado:', endpoint);
+                const { data } = await axios.get(endpoint);
                 console.log('Datos de la API:', data);
-                setAppointments(data)
-            } catch(error){
+                
+                if (role === 'admin') {
+                    setAppointments(data.appointments);
+                    setTotalAppointments(data.total);
+                } else {
+                    setAppointments(data);
+                    setTotalAppointments(data.length);
+                }
+            } catch (error) {
                 console.error('Error fetching appointments', error);
             }
         };
         fetchAppointments();
-    }, [role]) 
+    }, [role, page, limit, startDate, endDate, searchQuery]);
 
-    //Manejar cambios de estado
     const handleStatusChange = async (appointmentId, newStatus) => {
         if (!appointmentId || !/^[0-9a-fA-F]{24}$/.test(appointmentId)) {
             alert('ID de turno inválido');
@@ -48,50 +69,21 @@ const AppointmentList = () => {
         }
     };
 
-    //filtrar y ordenar los turnos
-    const filteredAndSortedAppointments = useMemo(() => {
-      let filtered = [...appointments];
+    // No es necesario ordenar en el frontend, ya que el backend lo hace
+    const filteredAppointments = useMemo(() => {
+        return appointments; // Los turnos ya están ordenados y filtrados por el backend
+    }, [appointments]);
 
-      if (startDate && endDate && new Date(startDate) > new Date(endDate)) {
-            alert('La fecha de inicio no puede ser mayor que la fecha de fin');
-            return filtered;
+    const totalPages = Math.ceil(totalAppointments / limit);
+
+    const handlePageChange = (newPage) => {
+        if (newPage >= 1 && newPage <= totalPages) {
+            setPage(newPage);
         }
+    };
 
-      if(startDate){
-        const start = new Date(startDate);
-        filtered = filtered.filter((appt) => new Date(appt.date) >= start);
-      }
-      if(endDate){
-        const end = new Date(endDate);
-        end.setHours(23,59,59,999);
-        filtered = filtered.filter((appt) => new Date(appt.date) <= end);
-      }
-
-      //Filtrar por busqueda
-       if (searchQuery) {
-            const query = searchQuery.toLowerCase();
-            filtered = filtered.filter((appt) => {
-                const doctorName = `${appt.doctor?.first_name || ''} ${appt.doctor?.last_name || ''}`.toLowerCase();
-                const patientName = appt.patient_name
-                    ? appt.patient_name.toLowerCase()
-                    : appt.user
-                    ? `${appt.user.first_name} ${appt.user.last_name}`.toLowerCase()
-                    : '';
-                const notes = appt.notes ? appt.notes.toLowerCase() : '';
-                return (
-                    doctorName.includes(query) ||
-                    patientName.includes(query) ||
-                    notes.includes(query)
-                );
-            });
-        }
-         // Ordenar por fecha ascendente
-        return filtered.sort((a, b) => new Date(a.date) - new Date(b.date));
-    }, [appointments, startDate, endDate, searchQuery]);
-
-
-  return (
-     <Container fluid className="appointment-list-container">
+    return (
+        <Container fluid className="appointment-list-container">
             <Row className="justify-content-center">
                 <Col md={8} className="text-center">
                     <Card className="appointment-list-card">
@@ -101,11 +93,10 @@ const AppointmentList = () => {
                             </Card.Title>
                             <Card.Text className="appointment-list-text">
                                 {role === 'admin'
-                                    ? 'Lista de todos los turnos registrados en el sistema.'
+                                    ? `Lista de todos los turnos registrados en el sistema. Total: ${totalAppointments}`
                                     : 'Consulta tus turnos programados.'}
                             </Card.Text>
 
-                            {/* Filtros */}
                             <Form className="mb-3">
                                 <Row>
                                     <Col md={4}>
@@ -153,14 +144,14 @@ const AppointmentList = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {filteredAndSortedAppointments.length === 0 ? (
+                                    {filteredAppointments.length === 0 ? (
                                         <tr>
                                             <td colSpan="5" className="text-center">
                                                 No hay turnos disponibles.
                                             </td>
                                         </tr>
                                     ) : (
-                                        filteredAndSortedAppointments.map((appointment) => (
+                                        filteredAppointments.map((appointment) => (
                                             <tr key={appointment.id}>
                                                 <td>
                                                     {appointment.doctor?.first_name}{' '}
@@ -206,12 +197,34 @@ const AppointmentList = () => {
                                     )}
                                 </tbody>
                             </Table>
+
+                            {role === 'admin' && totalAppointments > 0 && (
+                                <div className="pagination-controls mt-3">
+                                    <Button
+                                        variant="outline-primary"
+                                        disabled={page === 1}
+                                        onClick={() => handlePageChange(page - 1)}
+                                    >
+                                        Anterior
+                                    </Button>
+                                    <span className="mx-3">
+                                        Página {page} de {totalPages}
+                                    </span>
+                                    <Button
+                                        variant="outline-primary"
+                                        disabled={page === totalPages}
+                                        onClick={() => handlePageChange(page + 1)}
+                                    >
+                                        Siguiente
+                                    </Button>
+                                </div>
+                            )}
                         </Card.Body>
                     </Card>
                 </Col>
             </Row>
         </Container>
-  )
-}
+    );
+};
 
-export default AppointmentList
+export default AppointmentList;

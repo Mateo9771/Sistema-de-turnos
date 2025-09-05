@@ -15,12 +15,14 @@ import swaggerUiExpress from 'swagger-ui-express';
 import { swaggerSpecs } from './configs/swagger.js';
 import cron from 'node-cron';
 import {checkPendingAppointments} from './services/notification/notification.service.js';
+import logger from './utils/logger.js';
 
 //set servidor
 const app = express();
 const PORT = config.PORT;
 const URL_MONGO = config.URL_MONGO;
 
+// Middleware para deshabilitar el cacheo
 const noCache = (req, res, next) => {
   res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
   res.setHeader('Pragma', 'no-cache');
@@ -40,6 +42,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser('CoderS3cr3tC0d3'));
+app.use(noCache);
 
 initializePassport();
 app.use(passport.initialize());
@@ -53,17 +56,18 @@ app.use('/api/docs', swaggerUiExpress.serve, swaggerUiExpress.setup(swaggerSpecs
 
 //conexión servidor
 const server = app.listen(PORT, () => {
-    console.log(`Listening on PORT ${PORT}`)
+    logger.info(`Servidor escuchando en el puerto ${PORT}`);
 })
 
 mongoose
     .connect(URL_MONGO)
-    .then(() => console.log('Connexión realizada con exito a Mongo'))
-    .catch((error) => console.error('Error al conectar a la base de datos', error))
+    .then(() => logger.info('Conectado a la base de datos'))
+    .catch((error) => logger.error('Error al conectar a la base de datos:', error));
 
-    // Programar tarea para notificaciones
+
+// Programar tarea para notificaciones
 cron.schedule('*/30 * * * *', () => {
-  console.log('Verificando turnos pendientes...');
+  logger.info('Verificando turnos pendientes...');
   checkPendingAppointments();
 });
 

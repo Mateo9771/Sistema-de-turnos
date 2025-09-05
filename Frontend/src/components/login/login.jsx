@@ -9,7 +9,7 @@ import './login.css';
 const Login = () => {
   const { role, setRole, setIsAuthenticated } = useContext(RoleContext);
   const navigate = useNavigate();
-  const [isSignup, setIsSignup] = useState(true);
+  const [isSignup, setIsSignup] = useState(false);
   const [form, setForm] = useState({
     first_name: '',
     last_name: '',
@@ -19,28 +19,25 @@ const Login = () => {
     age: '',
   });
   const [error, setError] = useState(null);
-  
-
-   // Redirigir a usuarios autenticados fuera de la página de login
+// Redirigir si ya está autenticado
   useEffect(() => {
     if (role) {
-      navigate('/home', { replace: true }); // Usar replace para no añadir al historial
+      navigate('/home', { replace: true });
     }
   }, [role, navigate]);
-
+// Manejar cambios en los campos del formulario
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-
+// Validar contraseña
   const validatePassword = (password) => {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return passwordRegex.test(password);
   };
-
+// Manejar registro
   const handleSignup = async (e) => {
     e.preventDefault();
-    setError(null); // Limpiar error previo
-    // Validaciones básicas
+    setError(null);
     if (!/\S+@\S+\.\S+/.test(form.email)) {
       setError('Por favor, ingrese un email válido.');
       return;
@@ -54,37 +51,38 @@ const Login = () => {
     const formWithRole = { ...form, role: 'user' };
     try {
       await axios.post('/sessions/register', formWithRole, { withCredentials: true });
-      setError(null); // Limpiar error
+      setError(null);
       alert('Registro exitoso. Ahora puedes iniciar sesión.');
       setIsSignup(false);
       setForm({ first_name: '', last_name: '', email: '', phone: '', password: '', age: '' });
     } catch (err) {
-      console.error(err);
-      alert('Error al registrarte: ' + (err.response?.data?.message || 'Inténtalo de nuevo.'));
+      console.error('Error al registrarte:', err.response?.data);
+      setError(err.response?.data?.message || 'Error al registrarte. Inténtalo de nuevo.');
     }
   };
-
-   const handleLogin = async (e) => {
-        e.preventDefault();
-        setError(null);
-        try {
-            const response = await axios.post(
-                '/sessions/login',
-                { email: form.email, password: form.password },
-                { withCredentials: true }
-            );
-            console.log('Respuesta de login:', response.data);
-            const { token, role, redirect } = response.data;
-            localStorage.setItem('token', token);
-            localStorage.setItem('userRole', role);
-            setRole(role);
-            setIsAuthenticated(true);
-            navigate(redirect || '/home', { replace: true });
-        } catch (err) {
-            console.error('Error en login:', err.response?.data);
-            setError(err.response?.data?.message || 'Credenciales inválidas');
-        }
-    };
+// Manejar inicio de sesión
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError(null);
+    try {
+      const response = await axios.post(
+        '/sessions/login',
+        { email: form.email, password: form.password },
+        { withCredentials: true }
+      );
+      console.log('Respuesta de login:', response.data);
+      const { token, role, redirect } = response.data;
+      localStorage.setItem('token', token);
+      localStorage.setItem('userRole', role);
+      console.log('Token almacenado en localStorage:', token);
+      setRole(role);
+      setIsAuthenticated(true);
+      navigate(redirect || '/home', { replace: true });
+    } catch (err) {
+      console.error('Error en login:', err.response?.data || err.message);
+      setError(err.response?.data?.message || 'Credenciales inválidas');
+    }
+  };
 
   return (
     <Container fluid className="login-container">
@@ -102,6 +100,7 @@ const Login = () => {
           >
             {isSignup ? 'Cambiar a Iniciar Sesión' : 'Cambiar a Registro'}
           </ToggleButton>
+          {error && <Alert variant="danger">{error}</Alert>}
           {isSignup ? (
             <Form onSubmit={handleSignup}>
               <Form.Group className="mb-3">
@@ -132,7 +131,7 @@ const Login = () => {
                   value={form.email}
                   onChange={handleChange}
                   required
-                  autoComplete="username" 
+                  autoComplete="username"
                 />
               </Form.Group>
               <Form.Group className="mb-3">
@@ -162,7 +161,7 @@ const Login = () => {
                   placeholder="Contraseña"
                   value={form.password}
                   onChange={handleChange}
-                  autoComplete="new-password" 
+                  autoComplete="new-password"
                   required
                 />
               </Form.Group>
@@ -199,7 +198,6 @@ const Login = () => {
               </Button>
             </Form>
           )}
-          {error && <div className="error-message">{error}</div>}
         </Card.Body>
       </Card>
     </Container>

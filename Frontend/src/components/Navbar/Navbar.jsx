@@ -6,9 +6,9 @@ import { RoleContext } from '../../App';
 import './Navbar.css';
 
 const Navbar = () => {
-  const { role, handleLogout } = useContext(RoleContext);
-  const navigate = useNavigate();
-
+  const { role, handleLogout } = useContext(RoleContext);// Obtener el rol del usuario y la función de logout desde el contexto
+  const navigate = useNavigate();// Hook para navegación programática
+  // Manejar el clic en "Cerrar Sesión"
   const onLogout = async () => {
     await handleLogout();
     navigate('/', { replace: true });

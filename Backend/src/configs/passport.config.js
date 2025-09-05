@@ -5,6 +5,7 @@
     import usersModel from '../services/models/users.model.js';
     import {cookieExtractor, PRIVATE_KEY} from '../utils/jwt.js';
     import { createHash } from '../utils/password.js';
+    import logger from '../utils/logger.js';
 
     //estrategia declarada
     const localStrategy = passportLocal.Strategy;
@@ -20,13 +21,13 @@
                 jwtFromRequest: ExtractJWT.fromExtractors([cookieExtractor]),
                 secretOrKey: PRIVATE_KEY
             }, async(jwt_payload, done) => {
-                console.log("Entrando a passport Strategy con JWT.");
+                logger.info("Entrando a passport Strategy con JWT.");
                 try{
-                    console.log("jwt obtenido payload")
-                    console.log(jwt_payload)
+                    logger.info("jwt obtenido payload")
+                    logger.info(jwt_payload)
                     return done(null, jwt_payload.user)
                 }catch(error){
-                    console.error(error);
+                    logger.error("Error en estrategia de passport jwt")
                     return done(error)
                 }
             }
@@ -36,7 +37,7 @@
         passport.use('register', new localStrategy(
             {passReqToCallback: true, usernameField: 'email'},
             async(req, username, password, done) => {
-                console.log('userModel', username);
+                logger.info(`Registrando usuario ${username}`);
                 
                 const {first_name, last_name, email, age, role} = req.body;
 
@@ -46,7 +47,7 @@
                 try{
                     const exist = await usersModel.findOne({ email: username });
                     if(exist) {
-                        console.log("El usuario ya existe")
+                        logger.warn("El usuario ya existe")
                         return done(null, false);
                     }
                     const user =  {
@@ -77,7 +78,7 @@
                 let user = await usersModel.findById(_id);
                 done (null, user)
             } catch (error) {
-                console.error("Error deserialización el usuario: " +  error);
+                logger.error("Error deserialización el usuario: " +  error);
             }
         })
 
