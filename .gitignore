@@ -1,3 +1,29 @@
-**/node_modules/
+node_modules/
 Backend/src/configs/.env
 Frontend/.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Archivos locales y temporales
+*.local
+.DS_Store
+
+# Archivos de editores
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Directorios de build (excluir solo en desarrollo, si es necesario)
+# Nota: NO excluimos dist/ aquí porque es necesari
