@@ -6,10 +6,10 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'r
 import React, { useEffect, useState, useCallback } from 'react';
 import Login from './components/login/login';
 import Home from './components/home/home.jsx';
-import BookAppointment from './components/bookAppointment/BookAppointment';
-import AppointmentList from './components/AppointmentList/AppointmentList';
-import MyCalendar from './components/Calendar/Calendar';
-import Navbar from './components/Navbar/Navbar';
+import BookAppointment from './components/BookAppointment/BookAppointment.jsx';
+import AppointmentList from './components/AppointmentList/AppointmentList.jsx';
+import MyCalendar from './components/Calendar/Calendar.jsx';
+import Navbar from './components/Navbar/Navbar.jsx';
 import RequestResetPassword from './components/RequesResetPassword/RequestResetPassword.jsx';
 import ResetPassword from './components/ResetPassword/ResetPassword.jsx';
 import axios from './api/axios.api.jsx';
