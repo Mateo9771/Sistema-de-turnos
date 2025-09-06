@@ -42,7 +42,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cookieParser('CoderS3cr3tC0d3'));
+app.use(cookieParser(config.COOKIE_SECRET));
 app.use(noCache);
 
 initializePassport();

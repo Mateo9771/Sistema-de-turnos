@@ -1,8 +1,9 @@
 //TURNERO\Backend\src\utils\jwt.js
 import jwt from 'jsonwebtoken';
 import logger from './logger.js';
+import config from '../configs/configs.js';
 
-export const PRIVATE_KEY = "CoderS3cr3tC0d3";
+export const PRIVATE_KEY = config.COOKIE_SECRET;
 // Genera un token JWT para un usuario
 export const generateJWToken = (user) => {
     try {
