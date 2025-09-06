@@ -33,7 +33,8 @@ const noCache = (req, res, next) => {
 
 //cors y json
 app.use(cors({
-  origin: 'http://localhost:5173', // URL donde corre React
+  origin: config.FRONTEND_URL, // URL donde corre React
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true // si usás cookies o auth con sesión
 }));
 

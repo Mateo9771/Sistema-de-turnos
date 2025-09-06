@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container, Card, Form, Button, Alert } from 'react-bootstrap';
-import axios from '../../api/axios.api.jsx'; // Usa la instancia personalizada
-import './ResetPassword.css'; // Asegúrate de crear este archivo si no existe
+import axios from '../../api/axios.api.jsx';
+import './ResetPassword.css'; 
 
 const ResetPassword = () => {
   const { token } = useParams(); // Obtener el token de la URL

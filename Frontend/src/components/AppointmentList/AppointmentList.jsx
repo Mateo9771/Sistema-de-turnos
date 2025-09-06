@@ -22,7 +22,6 @@ const AppointmentList = () => {
                     ? `/appointments?page=${page}&limit=${limit}`
                     : '/appointments/user';
                 
-                // Añadir parámetros de filtro para admin
                 if (role === 'admin') {
                     const params = new URLSearchParams({ page, limit });
                     if (startDate) params.append('startDate', startDate);
@@ -69,9 +68,8 @@ const AppointmentList = () => {
         }
     };
 
-    // No es necesario ordenar en el frontend, ya que el backend lo hace
     const filteredAppointments = useMemo(() => {
-        return appointments; // Los turnos ya están ordenados y filtrados por el backend
+        return appointments; 
     }, [appointments]);
 
     const totalPages = Math.ceil(totalAppointments / limit);

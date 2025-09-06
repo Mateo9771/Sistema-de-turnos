@@ -3499,3 +3499,116 @@ ReferenceError: patient_email is not defined
 2025-09-05 22:55:26 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
 2025-09-05 22:55:26 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
 2025-09-05 22:55:26 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-06 00:19:39 [[32MINFO[39M]: Servidor escuchando en el puerto 8080
+2025-09-06 00:19:39 [[32MINFO[39M]: Conectado a la base de datos
+2025-09-06 00:19:40 [[32MINFO[39M]: Configuración de Nodemailer verificada exitosamente
+2025-09-06 00:19:48 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-06 00:19:48 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-06 00:19:54 [[32MINFO[39M]: Intento de login para el email: mateo.baldoni@gmail.com
+2025-09-06 00:19:54 [[32MINFO[39M]: Buscando usuario por email: mateo.baldoni@gmail.com
+2025-09-06 00:19:54 [[32MINFO[39M]: Validando contraseña para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-06 00:19:54 [[33MWARN[39M]: Contraseña inválida para usuario: mateo.baldoni@gmail.com
+2025-09-06 00:19:54 [[33MWARN[39M]: Contraseña inválida para el email: mateo.baldoni@gmail.com
+2025-09-06 00:19:59 [[32MINFO[39M]: Intento de login para el email: mateo.baldoni@gmail.com
+2025-09-06 00:19:59 [[32MINFO[39M]: Buscando usuario por email: mateo.baldoni@gmail.com
+2025-09-06 00:19:59 [[32MINFO[39M]: Validando contraseña para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-06 00:19:59 [[32MINFO[39M]: Contraseña válida para usuario: mateo.baldoni@gmail.com
+2025-09-06 00:19:59 [[32MINFO[39M]: Generando token JWT para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-06 00:19:59 [[32MINFO[39M]: Token JWT generado exitosamente para: mateo.baldoni@gmail.com
+2025-09-06 00:19:59 [[32MINFO[39M]: Login exitoso para email: mateo.baldoni@gmail.com, rol: admin
+2025-09-06 00:21:32 [[32MINFO[39M]: Servidor escuchando en el puerto 8080
+2025-09-06 00:21:33 [[32MINFO[39M]: Conectado a la base de datos
+2025-09-06 00:21:34 [[32MINFO[39M]: Configuración de Nodemailer verificada exitosamente
+2025-09-06 00:21:37 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-06 00:21:37 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-06 00:21:37 [[32MINFO[39M]: jwt obtenido payload
+2025-09-06 00:21:37 [[32MINFO[39M]: [object Object]
+2025-09-06 00:21:37 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-06 00:21:37 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-06 00:21:37 [[32MINFO[39M]: jwt obtenido payload
+2025-09-06 00:21:37 [[32MINFO[39M]: [object Object]
+2025-09-06 00:21:39 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-06 00:21:39 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-06 00:21:39 [[32MINFO[39M]: jwt obtenido payload
+2025-09-06 00:21:39 [[32MINFO[39M]: [object Object]
+2025-09-06 00:21:39 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-06 00:21:39 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-06 00:21:39 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-06 00:21:39 [[32MINFO[39M]: jwt obtenido payload
+2025-09-06 00:21:39 [[32MINFO[39M]: [object Object]
+2025-09-06 00:21:39 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-06 00:21:39 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-06 00:21:39 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-06 00:21:39 [[32MINFO[39M]: jwt obtenido payload
+2025-09-06 00:21:39 [[32MINFO[39M]: [object Object]
+2025-09-06 00:21:39 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 58
+2025-09-06 00:21:39 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-06 00:21:39 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-06 00:21:39 [[32MINFO[39M]: jwt obtenido payload
+2025-09-06 00:21:39 [[32MINFO[39M]: [object Object]
+2025-09-06 00:21:39 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 58
+2025-09-06 00:21:42 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-06 00:21:42 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-06 00:21:42 [[32MINFO[39M]: jwt obtenido payload
+2025-09-06 00:21:42 [[32MINFO[39M]: [object Object]
+2025-09-06 00:21:42 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-06 00:21:42 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-06 00:21:42 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-06 00:21:42 [[32MINFO[39M]: jwt obtenido payload
+2025-09-06 00:21:42 [[32MINFO[39M]: [object Object]
+2025-09-06 00:21:42 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-06 00:21:42 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-06 00:21:42 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-06 00:21:42 [[32MINFO[39M]: jwt obtenido payload
+2025-09-06 00:21:42 [[32MINFO[39M]: [object Object]
+2025-09-06 00:21:42 [[32MINFO[39M]: Total de turnos encontrados: 58, Total general: 58
+2025-09-06 00:21:42 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-06 00:21:42 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-06 00:21:42 [[32MINFO[39M]: jwt obtenido payload
+2025-09-06 00:21:42 [[32MINFO[39M]: [object Object]
+2025-09-06 00:21:42 [[32MINFO[39M]: Total de turnos encontrados: 58, Total general: 58
+2025-09-06 00:21:45 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-06 00:21:45 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-06 00:21:45 [[32MINFO[39M]: jwt obtenido payload
+2025-09-06 00:21:45 [[32MINFO[39M]: [object Object]
+2025-09-06 00:21:45 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-06 00:21:45 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-06 00:21:45 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-06 00:21:45 [[32MINFO[39M]: jwt obtenido payload
+2025-09-06 00:21:45 [[32MINFO[39M]: [object Object]
+2025-09-06 00:21:45 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-06 00:21:48 [[32MINFO[39M]: Usuario desconocido ha cerrado sesión
+2025-09-06 00:30:00 [[32MINFO[39M]: Verificando turnos pendientes...
+2025-09-06 00:30:00 [[32MINFO[39M]: Verificando turnos pendientes entre 2025-09-06T03:30:00.022Z y 2025-09-06T15:30:00.022Z
+2025-09-06 00:30:00 [[32MINFO[39M]: Notificaciones enviadas para 0 turnos pendientes.
+2025-09-06 00:32:15 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-06 00:32:15 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-06 00:32:24 [[32MINFO[39M]: Intento de login para el email: mateo.baldoni@gmail.com
+2025-09-06 00:32:24 [[32MINFO[39M]: Buscando usuario por email: mateo.baldoni@gmail.com
+2025-09-06 00:32:24 [[32MINFO[39M]: Validando contraseña para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-06 00:32:24 [[32MINFO[39M]: Contraseña válida para usuario: mateo.baldoni@gmail.com
+2025-09-06 00:32:24 [[32MINFO[39M]: Generando token JWT para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-06 00:32:24 [[32MINFO[39M]: Token JWT generado exitosamente para: mateo.baldoni@gmail.com
+2025-09-06 00:32:24 [[32MINFO[39M]: Login exitoso para email: mateo.baldoni@gmail.com, rol: admin
+2025-09-06 00:32:26 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-06 00:32:26 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-06 00:32:26 [[32MINFO[39M]: jwt obtenido payload
+2025-09-06 00:32:26 [[32MINFO[39M]: [object Object]
+2025-09-06 00:32:26 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 58
+2025-09-06 00:32:26 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-06 00:32:26 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-06 00:32:26 [[32MINFO[39M]: jwt obtenido payload
+2025-09-06 00:32:26 [[32MINFO[39M]: [object Object]
+2025-09-06 00:32:26 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 58
+2025-09-06 00:32:28 [[32MINFO[39M]: Usuario desconocido ha cerrado sesión
+2025-09-06 00:32:28 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-06 00:32:47 [[32MINFO[39M]: Datos recibidos para registro: {"first_name":"Mateo","last_name":"Baldoni","email":"mateo.baldonitt@gmail.com","phone":"01169488320","password":"12345678Mt*","age":"28","role":"user"}
+2025-09-06 00:32:47 [[32MINFO[39M]: Buscando usuario por email: mateo.baldonitt@gmail.com
+2025-09-06 00:32:47 [[33MWARN[39M]: Usuario no encontrado para el email: mateo.baldonitt@gmail.com
+2025-09-06 00:32:47 [[32MINFO[39M]: Generando hash de contraseña
+2025-09-06 00:32:47 [[32MINFO[39M]: Hash de contraseña generado exitosamente
+2025-09-06 00:32:47 [[32MINFO[39M]: Creando usuario: {"first_name":"Mateo","last_name":"Baldoni","email":"mateo.baldonitt@gmail.com","phone":1169488320,"password":"[REDACTED]","age":28,"role":"user"}
+2025-09-06 00:32:47 [[32MINFO[39M]: Usuario creado correctamente: mateo.baldonitt@gmail.com
+2025-09-06 00:32:47 [[32MINFO[39M]: Usuario registrado correctamente: mateo.baldonitt@gmail.com
+2025-09-06 00:33:17 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-06 00:33:17 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
