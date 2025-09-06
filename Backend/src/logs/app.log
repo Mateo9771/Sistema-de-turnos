@@ -2743,3 +2743,759 @@
 2025-09-04 23:10:27 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 52
 2025-09-04 23:10:32 [[32MINFO[39M]: Usuario desconocido ha cerrado sesión
 2025-09-04 23:10:32 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-04 23:15:36 [[32MINFO[39M]: Servidor escuchando en el puerto 8080
+2025-09-04 23:15:36 [[32MINFO[39M]: Conectado a la base de datos
+2025-09-04 23:15:37 [[32MINFO[39M]: Configuración de Nodemailer verificada exitosamente
+2025-09-04 23:16:01 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-04 23:16:01 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-04 23:16:02 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-04 23:16:02 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-04 23:16:13 [[32MINFO[39M]: Intento de login para el email: mateo.baldoni@gmail.com
+2025-09-04 23:16:13 [[32MINFO[39M]: Buscando usuario por email: mateo.baldoni@gmail.com
+2025-09-04 23:16:13 [[32MINFO[39M]: Validando contraseña para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-04 23:16:13 [[32MINFO[39M]: Contraseña válida para usuario: mateo.baldoni@gmail.com
+2025-09-04 23:16:13 [[32MINFO[39M]: Generando token JWT para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-04 23:16:13 [[32MINFO[39M]: Token JWT generado exitosamente para: mateo.baldoni@gmail.com
+2025-09-04 23:16:13 [[32MINFO[39M]: Login exitoso para email: mateo.baldoni@gmail.com, rol: admin
+2025-09-04 23:16:31 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:16:31 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:16:31 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:16:31 [[32MINFO[39M]: [object Object]
+2025-09-04 23:16:31 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:16:31 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:16:31 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:16:31 [[32MINFO[39M]: [object Object]
+2025-09-04 23:16:45 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:16:45 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:16:45 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:16:45 [[32MINFO[39M]: [object Object]
+2025-09-04 23:16:45 [[32MINFO[39M]: Creando un nuevo turno
+2025-09-04 23:16:45 [[32MINFO[39M]: Datos recibidos: {"doctor":"681c69e9f3b15480df726bf0","date":"2025-09-24T16:30:00Z","notes":"asdadd","patient_name":"luis"}
+2025-09-04 23:16:45 [[32MINFO[39M]: Verificando rol de usuario 681c69e9f3b15480df726bf0: admin
+2025-09-04 23:16:45 [[32MINFO[39M]: El doctor con ID 681c69e9f3b15480df726bf0 es admin: true
+2025-09-04 23:16:45 [[32MINFO[39M]: Buscando turno para doctor 681c69e9f3b15480df726bf0 en fecha Wed Sep 24 2025 13:30:00 GMT-0300 (hora estándar de Argentina)
+2025-09-04 23:16:45 [[32MINFO[39M]: Creando turno: {"user":"681c69e9f3b15480df726bf0","patient_name":"luis","doctor":"681c69e9f3b15480df726bf0","date":"2025-09-24T16:30:00.000Z","notes":"asdadd","status":"pending"}
+2025-09-04 23:16:48 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:16:48 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:16:48 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:16:48 [[32MINFO[39M]: [object Object]
+2025-09-04 23:16:48 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 53
+2025-09-04 23:16:48 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:16:48 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:16:48 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:16:48 [[32MINFO[39M]: [object Object]
+2025-09-04 23:16:48 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 53
+2025-09-04 23:16:53 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:16:53 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:16:53 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:16:53 [[32MINFO[39M]: [object Object]
+2025-09-04 23:16:53 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-04 23:16:53 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:16:53 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:16:53 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:16:53 [[32MINFO[39M]: [object Object]
+2025-09-04 23:16:53 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-04 23:16:53 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:16:53 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:16:53 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:16:53 [[32MINFO[39M]: [object Object]
+2025-09-04 23:16:53 [[32MINFO[39M]: Total de turnos encontrados: 53, Total general: 53
+2025-09-04 23:16:53 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:16:53 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:16:53 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:16:53 [[32MINFO[39M]: [object Object]
+2025-09-04 23:16:53 [[32MINFO[39M]: Total de turnos encontrados: 53, Total general: 53
+2025-09-04 23:16:59 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:16:59 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:16:59 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:16:59 [[32MINFO[39M]: [object Object]
+2025-09-04 23:16:59 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-04 23:16:59 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:16:59 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:16:59 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:16:59 [[32MINFO[39M]: [object Object]
+2025-09-04 23:16:59 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-04 23:17:01 [[32MINFO[39M]: Usuario desconocido ha cerrado sesión
+2025-09-04 23:17:16 [[32MINFO[39M]: Intento de login para el email: mateo.baldoni@gmail.com
+2025-09-04 23:17:16 [[32MINFO[39M]: Buscando usuario por email: mateo.baldoni@gmail.com
+2025-09-04 23:17:16 [[32MINFO[39M]: Validando contraseña para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-04 23:17:17 [[32MINFO[39M]: Contraseña válida para usuario: mateo.baldoni@gmail.com
+2025-09-04 23:17:17 [[32MINFO[39M]: Generando token JWT para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-04 23:17:17 [[32MINFO[39M]: Token JWT generado exitosamente para: mateo.baldoni@gmail.com
+2025-09-04 23:17:17 [[32MINFO[39M]: Login exitoso para email: mateo.baldoni@gmail.com, rol: admin
+2025-09-04 23:17:18 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:18 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:18 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:18 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:18 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:18 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:18 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:18 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:25 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:25 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:25 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:25 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:25 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-04 23:17:25 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:25 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:25 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:25 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:25 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-04 23:17:25 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:25 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:25 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:25 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:25 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:25 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:25 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:25 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:27 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:27 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:27 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:27 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:27 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-04 23:17:27 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:27 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:27 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:27 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:27 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-04 23:17:27 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:27 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:27 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:27 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:27 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 53
+2025-09-04 23:17:27 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:27 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:27 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:27 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:27 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 53
+2025-09-04 23:17:32 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:32 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:32 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:32 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:32 [[32MINFO[39M]: Total de turnos encontrados: 7, Total general: 7
+2025-09-04 23:17:32 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:32 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:32 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:32 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:32 [[32MINFO[39M]: Total de turnos encontrados: 5, Total general: 5
+2025-09-04 23:17:32 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:32 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:32 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:32 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:32 [[32MINFO[39M]: Total de turnos encontrados: 5, Total general: 5
+2025-09-04 23:17:32 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:32 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:32 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:32 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:32 [[32MINFO[39M]: Total de turnos encontrados: 5, Total general: 5
+2025-09-04 23:17:33 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:33 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:33 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:33 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:33 [[32MINFO[39M]: Total de turnos encontrados: 5, Total general: 5
+2025-09-04 23:17:33 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:33 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:33 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:33 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:33 [[32MINFO[39M]: Total de turnos encontrados: 5, Total general: 5
+2025-09-04 23:17:33 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:33 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:33 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:33 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:33 [[32MINFO[39M]: Total de turnos encontrados: 7, Total general: 7
+2025-09-04 23:17:33 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:33 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:33 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:33 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:33 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 53
+2025-09-04 23:17:37 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:37 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:37 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:37 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:37 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 53
+2025-09-04 23:17:39 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:39 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:39 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:39 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:39 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-04 23:17:39 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:39 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:39 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:39 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:39 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-04 23:17:39 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:39 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:39 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:39 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:39 [[32MINFO[39M]: Total de turnos encontrados: 53, Total general: 53
+2025-09-04 23:17:39 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:17:39 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:17:39 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:17:39 [[32MINFO[39M]: [object Object]
+2025-09-04 23:17:39 [[32MINFO[39M]: Total de turnos encontrados: 53, Total general: 53
+2025-09-04 23:17:48 [[32MINFO[39M]: Usuario desconocido ha cerrado sesión
+2025-09-04 23:31:39 [[32MINFO[39M]: Servidor escuchando en el puerto 8080
+2025-09-04 23:31:39 [[32MINFO[39M]: Conectado a la base de datos
+2025-09-04 23:31:39 [[32MINFO[39M]: Configuración de Nodemailer verificada exitosamente
+2025-09-04 23:31:49 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-04 23:31:49 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-04 23:31:54 [[32MINFO[39M]: Intento de login para el email: digitalsoftmb@gmail.com
+2025-09-04 23:31:54 [[32MINFO[39M]: Buscando usuario por email: digitalsoftmb@gmail.com
+2025-09-04 23:31:54 [[32MINFO[39M]: Validando contraseña para usuario: digitalsoftmb@gmail.com (ID: 689e8315f432e93ae7e3cb30)
+2025-09-04 23:31:54 [[32MINFO[39M]: Contraseña válida para usuario: digitalsoftmb@gmail.com
+2025-09-04 23:31:54 [[32MINFO[39M]: Generando token JWT para usuario: digitalsoftmb@gmail.com (ID: 689e8315f432e93ae7e3cb30)
+2025-09-04 23:31:54 [[32MINFO[39M]: Token JWT generado exitosamente para: digitalsoftmb@gmail.com
+2025-09-04 23:31:54 [[32MINFO[39M]: Login exitoso para email: digitalsoftmb@gmail.com, rol: user
+2025-09-04 23:31:55 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:31:55 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:31:55 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:31:55 [[32MINFO[39M]: [object Object]
+2025-09-04 23:31:55 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:31:55 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:31:55 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:31:55 [[32MINFO[39M]: [object Object]
+2025-09-04 23:32:04 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:32:04 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:32:04 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:32:04 [[32MINFO[39M]: [object Object]
+2025-09-04 23:32:04 [[32MINFO[39M]: Creando un nuevo turno
+2025-09-04 23:32:04 [[32MINFO[39M]: Datos recibidos: {"doctor":"681c69e9f3b15480df726bf0","date":"2025-09-05T13:30:00Z","notes":"adasdas"}
+2025-09-04 23:32:04 [[32MINFO[39M]: Verificando rol de usuario 681c69e9f3b15480df726bf0: admin
+2025-09-04 23:32:04 [[32MINFO[39M]: El doctor con ID 681c69e9f3b15480df726bf0 es admin: true
+2025-09-04 23:32:04 [[32MINFO[39M]: Buscando turno para doctor 681c69e9f3b15480df726bf0 en fecha Fri Sep 05 2025 10:30:00 GMT-0300 (hora estándar de Argentina)
+2025-09-04 23:32:04 [[32MINFO[39M]: Creando turno: {"user":"689e8315f432e93ae7e3cb30","patient_name":"Miguel Baldoni","doctor":"681c69e9f3b15480df726bf0","date":"2025-09-05T13:30:00.000Z","notes":"adasdas","status":"pending"}
+2025-09-04 23:32:07 [[32MINFO[39M]: Usuario desconocido ha cerrado sesión
+2025-09-04 23:32:19 [[32MINFO[39M]: Intento de login para el email: mateo.baldoni@gmail.com
+2025-09-04 23:32:19 [[32MINFO[39M]: Buscando usuario por email: mateo.baldoni@gmail.com
+2025-09-04 23:32:19 [[32MINFO[39M]: Validando contraseña para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-04 23:32:19 [[32MINFO[39M]: Contraseña válida para usuario: mateo.baldoni@gmail.com
+2025-09-04 23:32:19 [[32MINFO[39M]: Generando token JWT para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-04 23:32:19 [[32MINFO[39M]: Token JWT generado exitosamente para: mateo.baldoni@gmail.com
+2025-09-04 23:32:19 [[32MINFO[39M]: Login exitoso para email: mateo.baldoni@gmail.com, rol: admin
+2025-09-04 23:32:20 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:32:20 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:32:20 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:32:20 [[32MINFO[39M]: [object Object]
+2025-09-04 23:32:20 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 54
+2025-09-04 23:32:20 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:32:20 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:32:20 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:32:20 [[32MINFO[39M]: [object Object]
+2025-09-04 23:32:20 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 54
+2025-09-04 23:32:40 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:32:40 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:32:40 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:32:40 [[32MINFO[39M]: [object Object]
+2025-09-04 23:32:40 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 54
+2025-09-04 23:32:52 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:32:52 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:32:52 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:32:52 [[32MINFO[39M]: [object Object]
+2025-09-04 23:32:52 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 54
+2025-09-04 23:33:00 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:33:00 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:33:00 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:33:00 [[32MINFO[39M]: [object Object]
+2025-09-04 23:33:00 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 54
+2025-09-04 23:33:09 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:33:09 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:33:09 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:33:09 [[32MINFO[39M]: [object Object]
+2025-09-04 23:33:09 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 54
+2025-09-04 23:33:12 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:33:12 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:33:12 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:33:12 [[32MINFO[39M]: [object Object]
+2025-09-04 23:33:12 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 54
+2025-09-04 23:33:22 [[32MINFO[39M]: Usuario desconocido ha cerrado sesión
+2025-09-04 23:33:22 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-04 23:33:27 [[32MINFO[39M]: Intento de login para el email: digitalsoftmb@gmail.com
+2025-09-04 23:33:27 [[32MINFO[39M]: Buscando usuario por email: digitalsoftmb@gmail.com
+2025-09-04 23:33:27 [[32MINFO[39M]: Validando contraseña para usuario: digitalsoftmb@gmail.com (ID: 689e8315f432e93ae7e3cb30)
+2025-09-04 23:33:27 [[32MINFO[39M]: Contraseña válida para usuario: digitalsoftmb@gmail.com
+2025-09-04 23:33:27 [[32MINFO[39M]: Generando token JWT para usuario: digitalsoftmb@gmail.com (ID: 689e8315f432e93ae7e3cb30)
+2025-09-04 23:33:27 [[32MINFO[39M]: Token JWT generado exitosamente para: digitalsoftmb@gmail.com
+2025-09-04 23:33:27 [[32MINFO[39M]: Login exitoso para email: digitalsoftmb@gmail.com, rol: user
+2025-09-04 23:33:28 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:33:28 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:33:28 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:33:28 [[32MINFO[39M]: [object Object]
+2025-09-04 23:33:28 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:33:28 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:33:28 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:33:28 [[32MINFO[39M]: [object Object]
+2025-09-04 23:33:41 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:33:41 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:33:41 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:33:41 [[32MINFO[39M]: [object Object]
+2025-09-04 23:33:41 [[32MINFO[39M]: Creando un nuevo turno
+2025-09-04 23:33:41 [[32MINFO[39M]: Datos recibidos: {"doctor":"68b7722b06f507f7f9dbefdf","date":"2025-09-05T14:30:00Z","notes":"rrrrrreee"}
+2025-09-04 23:33:41 [[32MINFO[39M]: Verificando rol de usuario 68b7722b06f507f7f9dbefdf: admin
+2025-09-04 23:33:41 [[32MINFO[39M]: El doctor con ID 68b7722b06f507f7f9dbefdf es admin: true
+2025-09-04 23:33:41 [[32MINFO[39M]: Buscando turno para doctor 68b7722b06f507f7f9dbefdf en fecha Fri Sep 05 2025 11:30:00 GMT-0300 (hora estándar de Argentina)
+2025-09-04 23:33:41 [[32MINFO[39M]: Creando turno: {"user":"689e8315f432e93ae7e3cb30","patient_name":"Miguel Baldoni","doctor":"68b7722b06f507f7f9dbefdf","date":"2025-09-05T14:30:00.000Z","notes":"rrrrrreee","status":"pending"}
+2025-09-04 23:33:44 [[32MINFO[39M]: Usuario desconocido ha cerrado sesión
+2025-09-04 23:33:49 [[32MINFO[39M]: Intento de login para el email: mateo.baldoni@gmail.com
+2025-09-04 23:33:49 [[32MINFO[39M]: Buscando usuario por email: mateo.baldoni@gmail.com
+2025-09-04 23:33:49 [[32MINFO[39M]: Validando contraseña para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-04 23:33:49 [[32MINFO[39M]: Contraseña válida para usuario: mateo.baldoni@gmail.com
+2025-09-04 23:33:49 [[32MINFO[39M]: Generando token JWT para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-04 23:33:49 [[32MINFO[39M]: Token JWT generado exitosamente para: mateo.baldoni@gmail.com
+2025-09-04 23:33:49 [[32MINFO[39M]: Login exitoso para email: mateo.baldoni@gmail.com, rol: admin
+2025-09-04 23:33:50 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:33:50 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:33:50 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:33:50 [[32MINFO[39M]: [object Object]
+2025-09-04 23:33:50 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 55
+2025-09-04 23:33:50 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:33:50 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:33:50 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:33:50 [[32MINFO[39M]: [object Object]
+2025-09-04 23:33:50 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 55
+2025-09-04 23:33:54 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-04 23:33:54 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-04 23:33:54 [[32MINFO[39M]: jwt obtenido payload
+2025-09-04 23:33:54 [[32MINFO[39M]: [object Object]
+2025-09-04 23:33:54 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 55
+2025-09-04 23:33:59 [[32MINFO[39M]: Usuario desconocido ha cerrado sesión
+2025-09-04 23:33:59 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 20:55:18 [[32MINFO[39M]: Servidor escuchando en el puerto 8080
+2025-09-05 20:55:18 [[32MINFO[39M]: Conectado a la base de datos
+2025-09-05 20:55:20 [[32MINFO[39M]: Configuración de Nodemailer verificada exitosamente
+2025-09-05 20:55:42 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 20:55:42 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 20:59:02 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 20:59:02 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:00:00 [[32MINFO[39M]: Verificando turnos pendientes...
+2025-09-05 21:00:00 [[32MINFO[39M]: Verificando turnos pendientes entre 2025-09-06T00:00:00.063Z y 2025-09-06T12:00:00.063Z
+2025-09-05 21:00:00 [[32MINFO[39M]: Notificaciones enviadas para 0 turnos pendientes.
+2025-09-05 21:07:05 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:07:06 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:08:26 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:08:26 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:08:54 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:08:54 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:17:07 [[32MINFO[39M]: Solicitud de restablecimiento de contraseña para el email: mateo.baldoni@gmail.com
+2025-09-05 21:17:07 [[32MINFO[39M]: Token de restablecimiento generado para el usuario: mateo.baldoni@gmail.com, token: 576e59bb8d175d1a4b30f80c6d015e297ef2f9e4
+2025-09-05 21:17:10 [[32MINFO[39M]: Correo de restablecimiento enviado a: mateo.baldoni@gmail.com
+2025-09-05 21:20:00 [[32MINFO[39M]: Intento de restablecimiento de contraseña con token: 576e59bb8d175d1a4b30f80c6d015e297ef2f9e4
+2025-09-05 21:20:00 [[32MINFO[39M]: Generando hash de contraseña
+2025-09-05 21:20:00 [[32MINFO[39M]: Hash de contraseña generado exitosamente
+2025-09-05 21:20:00 [[32MINFO[39M]: Contraseña restablecida correctamente para el usuario: mateo.baldoni@gmail.com
+2025-09-05 21:20:03 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:20:03 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:20:04 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:20:04 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:20:12 [[32MINFO[39M]: Intento de login para el email: mateo.baldoni@gmail.com
+2025-09-05 21:20:12 [[32MINFO[39M]: Buscando usuario por email: mateo.baldoni@gmail.com
+2025-09-05 21:20:12 [[32MINFO[39M]: Validando contraseña para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 21:20:12 [[32MINFO[39M]: Contraseña válida para usuario: mateo.baldoni@gmail.com
+2025-09-05 21:20:12 [[32MINFO[39M]: Generando token JWT para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 21:20:12 [[32MINFO[39M]: Token JWT generado exitosamente para: mateo.baldoni@gmail.com
+2025-09-05 21:20:12 [[32MINFO[39M]: Login exitoso para email: mateo.baldoni@gmail.com, rol: admin
+2025-09-05 21:20:14 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:14 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:14 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:14 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:14 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 55
+2025-09-05 21:20:14 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:14 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:14 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:14 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:14 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 55
+2025-09-05 21:20:17 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:17 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:17 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:17 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:17 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 21:20:17 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:17 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:17 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:17 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:17 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 21:20:18 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:18 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:18 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:18 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:18 [[32MINFO[39M]: Total de turnos encontrados: 55, Total general: 55
+2025-09-05 21:20:18 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:18 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:18 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:18 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:18 [[32MINFO[39M]: Total de turnos encontrados: 55, Total general: 55
+2025-09-05 21:20:20 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:20 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:20 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:20 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:20 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 21:20:20 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:20 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:20 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:20 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:20 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 21:20:20 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:20 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:20 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:20 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:20 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:20 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:20 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:20 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:42 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:42 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:42 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:42 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:42 [[32MINFO[39M]: Creando un nuevo turno
+2025-09-05 21:20:42 [[32MINFO[39M]: Datos recibidos: {"doctor":"681c69e9f3b15480df726bf0","date":"2025-09-08T15:00:00Z","notes":"pppp","patient_name":"alan"}
+2025-09-05 21:20:42 [[32MINFO[39M]: Verificando rol de usuario 681c69e9f3b15480df726bf0: admin
+2025-09-05 21:20:42 [[32MINFO[39M]: El doctor con ID 681c69e9f3b15480df726bf0 es admin: true
+2025-09-05 21:20:42 [[32MINFO[39M]: Buscando turno para doctor 681c69e9f3b15480df726bf0 en fecha Mon Sep 08 2025 12:00:00 GMT-0300 (hora estándar de Argentina)
+2025-09-05 21:20:42 [[32MINFO[39M]: Creando turno: {"user":"681c69e9f3b15480df726bf0","patient_name":"alan","doctor":"681c69e9f3b15480df726bf0","date":"2025-09-08T15:00:00.000Z","notes":"pppp","status":"pending"}
+2025-09-05 21:20:45 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:45 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:45 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:45 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:45 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 21:20:45 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:45 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:45 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:45 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:45 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 21:20:45 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:45 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:45 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:45 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:45 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 56
+2025-09-05 21:20:45 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:45 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:45 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:45 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:45 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 56
+2025-09-05 21:20:49 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:49 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:49 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:49 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:49 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 56
+2025-09-05 21:20:58 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:58 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:58 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:58 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:58 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 21:20:58 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:58 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:58 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:58 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:58 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 21:20:58 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:58 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:58 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:58 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:58 [[32MINFO[39M]: Total de turnos encontrados: 56, Total general: 56
+2025-09-05 21:20:58 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 21:20:58 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 21:20:58 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 21:20:58 [[32MINFO[39M]: [object Object]
+2025-09-05 21:20:58 [[32MINFO[39M]: Total de turnos encontrados: 56, Total general: 56
+2025-09-05 21:21:05 [[32MINFO[39M]: Usuario desconocido ha cerrado sesión
+2025-09-05 21:21:08 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:21:08 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:21:09 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:21:09 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:21:09 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:21:09 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:24:58 [[32MINFO[39M]: Solicitud de restablecimiento de contraseña para el email: mateo.baldoni@gmail.com
+2025-09-05 21:24:58 [[32MINFO[39M]: Token de restablecimiento generado para el usuario: mateo.baldoni@gmail.com, token: 3c5dd4fb9f19a619699632c4daa239df48e1599c
+2025-09-05 21:25:01 [[32MINFO[39M]: Correo de restablecimiento enviado a: mateo.baldoni@gmail.com
+2025-09-05 21:25:34 [[32MINFO[39M]: Intento de restablecimiento de contraseña con token: 3c5dd4fb9f19a619699632c4daa239df48e1599c
+2025-09-05 21:25:34 [[32MINFO[39M]: Generando hash de contraseña
+2025-09-05 21:25:34 [[32MINFO[39M]: Hash de contraseña generado exitosamente
+2025-09-05 21:25:34 [[32MINFO[39M]: Contraseña restablecida correctamente para el usuario: mateo.baldoni@gmail.com
+2025-09-05 21:25:37 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:25:37 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:25:38 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:25:38 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:30:00 [[32MINFO[39M]: Verificando turnos pendientes...
+2025-09-05 21:30:00 [[32MINFO[39M]: Verificando turnos pendientes entre 2025-09-06T00:30:00.042Z y 2025-09-06T12:30:00.042Z
+2025-09-05 21:30:00 [[32MINFO[39M]: Enviando notificación para el turno 68ba468e603acf75eb99fb2a al usuario mateo.baldoni@gmail.com programado para 2025-09-06 09:30
+2025-09-05 21:30:00 [[32MINFO[39M]: Enviando recordatorio de turno a: mateo.baldoni@gmail.com, Fecha: 2025-09-06 09:30
+2025-09-05 21:30:02 [[32MINFO[39M]: Correo enviado exitosamente a: mateo.baldoni@gmail.com
+2025-09-05 21:30:02 [[32MINFO[39M]: Notificaciones enviadas para 1 turnos pendientes.
+2025-09-05 21:37:38 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:37:38 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:37:38 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:37:38 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 21:59:03 [[32MINFO[39M]: Servidor escuchando en el puerto 8080
+2025-09-05 21:59:03 [[32MINFO[39M]: Conectado a la base de datos
+2025-09-05 21:59:05 [[32MINFO[39M]: Configuración de Nodemailer verificada exitosamente
+2025-09-05 22:00:00 [[32MINFO[39M]: Verificando turnos pendientes...
+2025-09-05 22:00:00 [[32MINFO[39M]: Verificando turnos pendientes entre 2025-09-06T01:00:00.027Z y 2025-09-06T13:00:00.027Z
+2025-09-05 22:00:00 [[32MINFO[39M]: Notificaciones enviadas para 0 turnos pendientes.
+2025-09-05 22:04:53 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 22:04:54 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 22:07:37 [[32MINFO[39M]: Servidor escuchando en el puerto 8080
+2025-09-05 22:07:37 [[32MINFO[39M]: Conectado a la base de datos
+2025-09-05 22:07:38 [[32MINFO[39M]: Configuración de Nodemailer verificada exitosamente
+2025-09-05 22:11:01 [[32MINFO[39M]: Servidor escuchando en el puerto 8080
+2025-09-05 22:11:01 [[32MINFO[39M]: Conectado a la base de datos
+2025-09-05 22:11:02 [[32MINFO[39M]: Configuración de Nodemailer verificada exitosamente
+2025-09-05 22:11:48 [[32MINFO[39M]: Servidor escuchando en el puerto 8080
+2025-09-05 22:11:48 [[32MINFO[39M]: Conectado a la base de datos
+2025-09-05 22:11:49 [[32MINFO[39M]: Configuración de Nodemailer verificada exitosamente
+2025-09-05 22:16:17 [[32MINFO[39M]: Servidor escuchando en el puerto 8080
+2025-09-05 22:16:17 [[32MINFO[39M]: Conectado a la base de datos
+2025-09-05 22:16:18 [[32MINFO[39M]: Configuración de Nodemailer verificada exitosamente
+2025-09-05 22:16:23 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 22:16:23 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 22:16:31 [[32MINFO[39M]: Intento de login para el email: mateo.baldoni@gmail.com
+2025-09-05 22:16:31 [[32MINFO[39M]: Buscando usuario por email: mateo.baldoni@gmail.com
+2025-09-05 22:16:31 [[32MINFO[39M]: Validando contraseña para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 22:16:31 [[32MINFO[39M]: Contraseña válida para usuario: mateo.baldoni@gmail.com
+2025-09-05 22:16:31 [[32MINFO[39M]: Generando token JWT para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 22:16:31 [[32MINFO[39M]: Token JWT generado exitosamente para: mateo.baldoni@gmail.com
+2025-09-05 22:16:31 [[32MINFO[39M]: Login exitoso para email: mateo.baldoni@gmail.com, rol: admin
+2025-09-05 22:17:19 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:17:19 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:17:19 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:17:19 [[32MINFO[39M]: [object Object]
+2025-09-05 22:17:19 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 22:17:19 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:17:20 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:17:20 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:17:20 [[32MINFO[39M]: [object Object]
+2025-09-05 22:17:20 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 22:17:20 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:17:20 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:17:20 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:17:20 [[32MINFO[39M]: [object Object]
+2025-09-05 22:17:20 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:17:20 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:17:20 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:17:20 [[32MINFO[39M]: [object Object]
+2025-09-05 22:17:29 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:17:29 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:17:29 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:17:29 [[32MINFO[39M]: [object Object]
+2025-09-05 22:17:29 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 22:17:29 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:17:29 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:17:29 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:17:29 [[32MINFO[39M]: [object Object]
+2025-09-05 22:17:29 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 22:17:29 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:17:29 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:17:29 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:17:29 [[32MINFO[39M]: [object Object]
+2025-09-05 22:17:29 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:17:29 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:17:29 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:17:29 [[32MINFO[39M]: [object Object]
+2025-09-05 22:24:05 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:24:05 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:24:05 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:24:05 [[32MINFO[39M]: [object Object]
+2025-09-05 22:24:06 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:24:06 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:24:06 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:24:06 [[32MINFO[39M]: [object Object]
+2025-09-05 22:24:45 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:24:45 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:24:45 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:24:45 [[32MINFO[39M]: [object Object]
+2025-09-05 22:24:45 [[32MINFO[39M]: Creando un nuevo turno
+2025-09-05 22:24:45 [[32MINFO[39M]: Datos recibidos: {"doctor":"681c69e9f3b15480df726bf0","date":"2025-09-06T13:30:00Z","notes":"aaassssdddd","patient_name":"miguel ds","patient_email":"digitalsoftmb@gmail.com"}
+2025-09-05 22:24:45 [[31MERROR[39M]: Error al crear turno: patient_email is not defined
+ReferenceError: patient_email is not defined
+    at createAppointment (file:///C:/Proyectos/Trabajos/TURNERO/Backend/src/controllers/appointments.controller.js:35:9)
+    at Layer.handleRequest (C:\Proyectos\Trabajos\TURNERO\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Proyectos\Trabajos\TURNERO\Backend\node_modules\router\lib\route.js:157:13)
+    at file:///C:/Proyectos/Trabajos/TURNERO/Backend/src/middlewares/auth.js:11:7
+    at strategy.success (C:\Proyectos\Trabajos\TURNERO\Backend\node_modules\passport\lib\middleware\authenticate.js:222:18)
+    at verified (C:\Proyectos\Trabajos\TURNERO\Backend\node_modules\passport-jwt\lib\strategy.js:115:41)
+    at JwtStrategy._verify (file:///C:/Proyectos/Trabajos/TURNERO/Backend/src/configs/passport.config.js:28:28)
+    at C:\Proyectos\Trabajos\TURNERO\Backend\node_modules\passport-jwt\lib\strategy.js:123:34
+    at C:\Proyectos\Trabajos\TURNERO\Backend\node_modules\jsonwebtoken\verify.js:261:12
+    at getSecret (C:\Proyectos\Trabajos\TURNERO\Backend\node_modules\jsonwebtoken\verify.js:97:14)
+2025-09-05 22:25:17 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:25:17 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:25:17 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:25:17 [[32MINFO[39M]: [object Object]
+2025-09-05 22:25:17 [[32MINFO[39M]: Creando un nuevo turno
+2025-09-05 22:25:17 [[32MINFO[39M]: Datos recibidos: {"doctor":"681c69e9f3b15480df726bf0","date":"2025-09-06T13:30:00Z","notes":"aaassssdddd","patient_name":"miguel ds","patient_email":"digitalsoftmb@gmail.com"}
+2025-09-05 22:25:17 [[31MERROR[39M]: Error al crear turno: patient_email is not defined
+ReferenceError: patient_email is not defined
+    at createAppointment (file:///C:/Proyectos/Trabajos/TURNERO/Backend/src/controllers/appointments.controller.js:35:9)
+    at Layer.handleRequest (C:\Proyectos\Trabajos\TURNERO\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Proyectos\Trabajos\TURNERO\Backend\node_modules\router\lib\route.js:157:13)
+    at file:///C:/Proyectos/Trabajos/TURNERO/Backend/src/middlewares/auth.js:11:7
+    at strategy.success (C:\Proyectos\Trabajos\TURNERO\Backend\node_modules\passport\lib\middleware\authenticate.js:222:18)
+    at verified (C:\Proyectos\Trabajos\TURNERO\Backend\node_modules\passport-jwt\lib\strategy.js:115:41)
+    at JwtStrategy._verify (file:///C:/Proyectos/Trabajos/TURNERO/Backend/src/configs/passport.config.js:28:28)
+    at C:\Proyectos\Trabajos\TURNERO\Backend\node_modules\passport-jwt\lib\strategy.js:123:34
+    at C:\Proyectos\Trabajos\TURNERO\Backend\node_modules\jsonwebtoken\verify.js:261:12
+    at getSecret (C:\Proyectos\Trabajos\TURNERO\Backend\node_modules\jsonwebtoken\verify.js:97:14)
+2025-09-05 22:30:00 [[32MINFO[39M]: Verificando turnos pendientes...
+2025-09-05 22:30:00 [[32MINFO[39M]: Verificando turnos pendientes entre 2025-09-06T01:30:00.030Z y 2025-09-06T13:30:00.030Z
+2025-09-05 22:30:00 [[32MINFO[39M]: Notificaciones enviadas para 0 turnos pendientes.
+2025-09-05 22:32:01 [[32MINFO[39M]: Servidor escuchando en el puerto 8080
+2025-09-05 22:32:01 [[32MINFO[39M]: Conectado a la base de datos
+2025-09-05 22:32:02 [[32MINFO[39M]: Configuración de Nodemailer verificada exitosamente
+2025-09-05 22:33:40 [[32MINFO[39M]: Servidor escuchando en el puerto 8080
+2025-09-05 22:33:40 [[32MINFO[39M]: Conectado a la base de datos
+2025-09-05 22:33:41 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:33:41 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:33:41 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:33:41 [[32MINFO[39M]: [object Object]
+2025-09-05 22:33:41 [[32MINFO[39M]: Creando un nuevo turno
+2025-09-05 22:33:41 [[32MINFO[39M]: Datos recibidos: {"doctor":"681c69e9f3b15480df726bf0","date":"2025-09-06T13:30:00Z","notes":"aaassssdddd","patient_name":"miguel ds","patient_email":"digitalsoftmb@gmail.com"}
+2025-09-05 22:33:41 [[32MINFO[39M]: Verificando si el doctor 681c69e9f3b15480df726bf0 es admin
+2025-09-05 22:33:41 [[32MINFO[39M]: Verificando rol de usuario 681c69e9f3b15480df726bf0: admin
+2025-09-05 22:33:41 [[32MINFO[39M]: El doctor con ID 681c69e9f3b15480df726bf0 es admin: true
+2025-09-05 22:33:41 [[32MINFO[39M]: Buscando conflictos de horario para doctor 681c69e9f3b15480df726bf0 en Sat Sep 06 2025 10:30:00 GMT-0300 (hora estándar de Argentina)
+2025-09-05 22:33:41 [[32MINFO[39M]: Buscando turno para doctor 681c69e9f3b15480df726bf0 en fecha Sat Sep 06 2025 10:30:00 GMT-0300 (hora estándar de Argentina)
+2025-09-05 22:33:41 [[32MINFO[39M]: Datos para crear turno: {"user":"681c69e9f3b15480df726bf0","patient_name":"miguel ds","patient_email":"digitalsoftmb@gmail.com","doctor":"681c69e9f3b15480df726bf0","date":"2025-09-06T13:30:00.000Z","notes":"aaassssdddd","status":"pending"}
+2025-09-05 22:33:41 [[32MINFO[39M]: Creando turno: {"user":"681c69e9f3b15480df726bf0","patient_name":"miguel ds","patient_email":"digitalsoftmb@gmail.com","doctor":"681c69e9f3b15480df726bf0","date":"2025-09-06T13:30:00.000Z","notes":"aaassssdddd","status":"pending"}
+2025-09-05 22:33:41 [[32MINFO[39M]: Turno creado: 68bb8f756c9c071a6e1cf73f
+2025-09-05 22:33:42 [[32MINFO[39M]: Configuración de Nodemailer verificada exitosamente
+2025-09-05 22:34:55 [[32MINFO[39M]: Servidor escuchando en el puerto 8080
+2025-09-05 22:34:55 [[32MINFO[39M]: Conectado a la base de datos
+2025-09-05 22:34:56 [[32MINFO[39M]: Configuración de Nodemailer verificada exitosamente
+2025-09-05 22:35:00 [[32MINFO[39M]: Verificando turnos pendientes...
+2025-09-05 22:35:00 [[32MINFO[39M]: Verificando turnos pendientes entre 2025-09-06T01:35:00.048Z y 2025-09-06T13:35:00.048Z
+2025-09-05 22:35:00 [[32MINFO[39M]: Enviando notificación para el turno 68bb8f756c9c071a6e1cf73f a digitalsoftmb@gmail.com programado para 2025-09-06 10:30
+2025-09-05 22:35:00 [[32MINFO[39M]: Enviando recordatorio de turno a: digitalsoftmb@gmail.com, Fecha: 2025-09-06 10:30
+2025-09-05 22:35:02 [[32MINFO[39M]: Correo enviado exitosamente a: digitalsoftmb@gmail.com
+2025-09-05 22:35:02 [[33MWARN[39M]: No se encontró correo para el turno 68bb8f756c9c071a6e1cf73f (patient_email: digitalsoftmb@gmail.com, user: mateo.baldoni@gmail.com)
+2025-09-05 22:35:02 [[32MINFO[39M]: Notificaciones enviadas para 1 turnos pendientes.
+2025-09-05 22:36:00 [[32MINFO[39M]: Verificando turnos pendientes...
+2025-09-05 22:36:00 [[32MINFO[39M]: Verificando turnos pendientes entre 2025-09-06T01:36:00.026Z y 2025-09-06T13:36:00.026Z
+2025-09-05 22:36:00 [[32MINFO[39M]: Notificaciones enviadas para 0 turnos pendientes.
+2025-09-05 22:37:00 [[32MINFO[39M]: Verificando turnos pendientes...
+2025-09-05 22:37:00 [[32MINFO[39M]: Verificando turnos pendientes entre 2025-09-06T01:37:00.029Z y 2025-09-06T13:37:00.029Z
+2025-09-05 22:37:00 [[32MINFO[39M]: Notificaciones enviadas para 0 turnos pendientes.
+2025-09-05 22:37:34 [[32MINFO[39M]: Usuario desconocido ha cerrado sesión
+2025-09-05 22:37:42 [[32MINFO[39M]: Intento de login para el email: digitalsoftmb@gmail.com
+2025-09-05 22:37:42 [[32MINFO[39M]: Buscando usuario por email: digitalsoftmb@gmail.com
+2025-09-05 22:37:42 [[32MINFO[39M]: Validando contraseña para usuario: digitalsoftmb@gmail.com (ID: 689e8315f432e93ae7e3cb30)
+2025-09-05 22:37:42 [[33MWARN[39M]: Contraseña inválida para usuario: digitalsoftmb@gmail.com
+2025-09-05 22:37:42 [[33MWARN[39M]: Contraseña inválida para el email: digitalsoftmb@gmail.com
+2025-09-05 22:37:45 [[32MINFO[39M]: Intento de login para el email: digitalsoftmb@gmail.com
+2025-09-05 22:37:45 [[32MINFO[39M]: Buscando usuario por email: digitalsoftmb@gmail.com
+2025-09-05 22:37:45 [[32MINFO[39M]: Validando contraseña para usuario: digitalsoftmb@gmail.com (ID: 689e8315f432e93ae7e3cb30)
+2025-09-05 22:37:45 [[32MINFO[39M]: Contraseña válida para usuario: digitalsoftmb@gmail.com
+2025-09-05 22:37:45 [[32MINFO[39M]: Generando token JWT para usuario: digitalsoftmb@gmail.com (ID: 689e8315f432e93ae7e3cb30)
+2025-09-05 22:37:45 [[32MINFO[39M]: Token JWT generado exitosamente para: digitalsoftmb@gmail.com
+2025-09-05 22:37:45 [[32MINFO[39M]: Login exitoso para email: digitalsoftmb@gmail.com, rol: user
+2025-09-05 22:37:47 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:37:47 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:37:47 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:37:47 [[32MINFO[39M]: [object Object]
+2025-09-05 22:37:47 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:37:47 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:37:47 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:37:47 [[32MINFO[39M]: [object Object]
+2025-09-05 22:38:00 [[32MINFO[39M]: Verificando turnos pendientes...
+2025-09-05 22:38:00 [[32MINFO[39M]: Verificando turnos pendientes entre 2025-09-06T01:38:00.042Z y 2025-09-06T13:38:00.042Z
+2025-09-05 22:38:00 [[32MINFO[39M]: Notificaciones enviadas para 0 turnos pendientes.
+2025-09-05 22:38:09 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:38:09 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:38:09 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:38:09 [[32MINFO[39M]: [object Object]
+2025-09-05 22:38:09 [[32MINFO[39M]: Creando un nuevo turno
+2025-09-05 22:38:09 [[32MINFO[39M]: Datos recibidos: {"doctor":"681c69e9f3b15480df726bf0","date":"2025-09-06T13:30:00Z","notes":"qweqeqw"}
+2025-09-05 22:38:09 [[32MINFO[39M]: Verificando si el doctor 681c69e9f3b15480df726bf0 es admin
+2025-09-05 22:38:09 [[32MINFO[39M]: Verificando rol de usuario 681c69e9f3b15480df726bf0: admin
+2025-09-05 22:38:09 [[32MINFO[39M]: El doctor con ID 681c69e9f3b15480df726bf0 es admin: true
+2025-09-05 22:38:09 [[32MINFO[39M]: Buscando conflictos de horario para doctor 681c69e9f3b15480df726bf0 en Sat Sep 06 2025 10:30:00 GMT-0300 (hora estándar de Argentina)
+2025-09-05 22:38:09 [[32MINFO[39M]: Buscando turno para doctor 681c69e9f3b15480df726bf0 en fecha Sat Sep 06 2025 10:30:00 GMT-0300 (hora estándar de Argentina)
+2025-09-05 22:38:14 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:38:14 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:38:14 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:38:14 [[32MINFO[39M]: [object Object]
+2025-09-05 22:38:14 [[32MINFO[39M]: Creando un nuevo turno
+2025-09-05 22:38:14 [[32MINFO[39M]: Datos recibidos: {"doctor":"68b7722b06f507f7f9dbefdf","date":"2025-09-06T13:30:00Z","notes":"qweqeqw"}
+2025-09-05 22:38:14 [[32MINFO[39M]: Verificando si el doctor 68b7722b06f507f7f9dbefdf es admin
+2025-09-05 22:38:14 [[32MINFO[39M]: Verificando rol de usuario 68b7722b06f507f7f9dbefdf: admin
+2025-09-05 22:38:14 [[32MINFO[39M]: El doctor con ID 68b7722b06f507f7f9dbefdf es admin: true
+2025-09-05 22:38:14 [[32MINFO[39M]: Buscando conflictos de horario para doctor 68b7722b06f507f7f9dbefdf en Sat Sep 06 2025 10:30:00 GMT-0300 (hora estándar de Argentina)
+2025-09-05 22:38:14 [[32MINFO[39M]: Buscando turno para doctor 68b7722b06f507f7f9dbefdf en fecha Sat Sep 06 2025 10:30:00 GMT-0300 (hora estándar de Argentina)
+2025-09-05 22:38:14 [[32MINFO[39M]: Datos para crear turno: {"user":"689e8315f432e93ae7e3cb30","patient_name":"Miguel Baldoni","patient_email":null,"doctor":"68b7722b06f507f7f9dbefdf","date":"2025-09-06T13:30:00.000Z","notes":"qweqeqw","status":"pending"}
+2025-09-05 22:38:14 [[32MINFO[39M]: Creando turno: {"user":"689e8315f432e93ae7e3cb30","patient_name":"Miguel Baldoni","patient_email":null,"doctor":"68b7722b06f507f7f9dbefdf","date":"2025-09-06T13:30:00.000Z","notes":"qweqeqw","status":"pending"}
+2025-09-05 22:38:14 [[32MINFO[39M]: Turno creado: 68bb908651980ac9bdf02cfd
+2025-09-05 22:38:18 [[32MINFO[39M]: Usuario desconocido ha cerrado sesión
+2025-09-05 22:39:00 [[32MINFO[39M]: Verificando turnos pendientes...
+2025-09-05 22:39:00 [[32MINFO[39M]: Verificando turnos pendientes entre 2025-09-06T01:39:00.020Z y 2025-09-06T13:39:00.020Z
+2025-09-05 22:39:00 [[32MINFO[39M]: Enviando notificación para el turno 68bb908651980ac9bdf02cfd a digitalsoftmb@gmail.com programado para 2025-09-06 10:30
+2025-09-05 22:39:00 [[32MINFO[39M]: Enviando recordatorio de turno a: digitalsoftmb@gmail.com, Fecha: 2025-09-06 10:30
+2025-09-05 22:39:02 [[32MINFO[39M]: Correo enviado exitosamente a: digitalsoftmb@gmail.com
+2025-09-05 22:39:02 [[33MWARN[39M]: No se encontró correo para el turno 68bb908651980ac9bdf02cfd (patient_email: null, user: digitalsoftmb@gmail.com)
+2025-09-05 22:39:02 [[32MINFO[39M]: Notificaciones enviadas para 1 turnos pendientes.
+2025-09-05 22:54:57 [[32MINFO[39M]: Servidor escuchando en el puerto 8080
+2025-09-05 22:54:57 [[32MINFO[39M]: Conectado a la base de datos
+2025-09-05 22:54:58 [[32MINFO[39M]: Configuración de Nodemailer verificada exitosamente
+2025-09-05 22:54:59 [[32MINFO[39M]: Intento de login para el email: mateo.baldoni@gmail.com
+2025-09-05 22:54:59 [[32MINFO[39M]: Buscando usuario por email: mateo.baldoni@gmail.com
+2025-09-05 22:54:59 [[32MINFO[39M]: Validando contraseña para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 22:54:59 [[33MWARN[39M]: Contraseña inválida para usuario: mateo.baldoni@gmail.com
+2025-09-05 22:54:59 [[33MWARN[39M]: Contraseña inválida para el email: mateo.baldoni@gmail.com
+2025-09-05 22:55:03 [[32MINFO[39M]: Intento de login para el email: mateo.baldoni@gmail.com
+2025-09-05 22:55:03 [[32MINFO[39M]: Buscando usuario por email: mateo.baldoni@gmail.com
+2025-09-05 22:55:03 [[32MINFO[39M]: Validando contraseña para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 22:55:03 [[32MINFO[39M]: Contraseña válida para usuario: mateo.baldoni@gmail.com
+2025-09-05 22:55:03 [[32MINFO[39M]: Generando token JWT para usuario: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 22:55:03 [[32MINFO[39M]: Token JWT generado exitosamente para: mateo.baldoni@gmail.com
+2025-09-05 22:55:03 [[32MINFO[39M]: Login exitoso para email: mateo.baldoni@gmail.com, rol: admin
+2025-09-05 22:55:04 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:55:04 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:55:04 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:55:04 [[32MINFO[39M]: [object Object]
+2025-09-05 22:55:04 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:55:04 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:55:04 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:55:04 [[32MINFO[39M]: [object Object]
+2025-09-05 22:55:07 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:55:07 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:55:07 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:55:07 [[32MINFO[39M]: [object Object]
+2025-09-05 22:55:07 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 22:55:07 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:55:07 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:55:07 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:55:07 [[32MINFO[39M]: [object Object]
+2025-09-05 22:55:07 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 22:55:07 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:55:07 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:55:07 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:55:07 [[32MINFO[39M]: [object Object]
+2025-09-05 22:55:07 [[32MINFO[39M]: Total de turnos encontrados: 58, Total general: 58
+2025-09-05 22:55:07 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:55:07 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:55:07 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:55:07 [[32MINFO[39M]: [object Object]
+2025-09-05 22:55:07 [[32MINFO[39M]: Total de turnos encontrados: 58, Total general: 58
+2025-09-05 22:55:12 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:55:12 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:55:12 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:55:12 [[32MINFO[39M]: [object Object]
+2025-09-05 22:55:12 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 22:55:12 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:55:12 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:55:12 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:55:12 [[32MINFO[39M]: [object Object]
+2025-09-05 22:55:12 [[32MINFO[39M]: Usuario autenticado en /current: mateo.baldoni@gmail.com (ID: 681c69e9f3b15480df726bf0)
+2025-09-05 22:55:12 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:55:12 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:55:12 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:55:12 [[32MINFO[39M]: [object Object]
+2025-09-05 22:55:12 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 58
+2025-09-05 22:55:12 [[32MINFO[39M]: Cookie extraída: eyJhbGciOi...
+2025-09-05 22:55:12 [[32MINFO[39M]: Entrando a passport Strategy con JWT.
+2025-09-05 22:55:12 [[32MINFO[39M]: jwt obtenido payload
+2025-09-05 22:55:12 [[32MINFO[39M]: [object Object]
+2025-09-05 22:55:12 [[32MINFO[39M]: Total de turnos encontrados: 10, Total general: 58
+2025-09-05 22:55:17 [[32MINFO[39M]: Usuario desconocido ha cerrado sesión
+2025-09-05 22:55:17 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 22:55:26 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 22:55:26 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 22:55:26 [[33MWARN[39M]: No se encontró cookie JwtCookieToken
+2025-09-05 22:55:26 [[33MWARN[39M]: No se encontró cookie JwtCookieToken

@@ -10,7 +10,7 @@ import BookAppointment from './components/bookAppointment/BookAppointment';
 import AppointmentList from './components/AppointmentList/AppointmentList';
 import MyCalendar from './components/Calendar/Calendar';
 import Navbar from './components/Navbar/Navbar';
-import RequestResetPassword from './components/RequesResetPassword/RequesResetPassword.jsx';
+import RequestResetPassword from './components/RequesResetPassword/RequestResetPassword.jsx';
 import ResetPassword from './components/ResetPassword/ResetPassword.jsx';
 import axios from './api/axios.api.jsx';
 
@@ -67,6 +67,7 @@ function App() {
         <AppContent
           checkSession={checkSession}
           isLoading={isLoading}
+          setIsLoading={setIsLoading}
           isAuthenticated={isAuthenticated}
           sessionChecked={sessionChecked}
         />
@@ -75,7 +76,7 @@ function App() {
   );
 }
 // Componente separado para manejar las rutas y la lógica de sesión
-function AppContent({ checkSession, isLoading, isAuthenticated, sessionChecked }) {
+function AppContent({ checkSession, isLoading, setIsLoading, isAuthenticated, sessionChecked }) {
   const location = useLocation();
 
   useEffect(() => {

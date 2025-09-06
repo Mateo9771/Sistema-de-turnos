@@ -1,0 +1,69 @@
+# Turnero Backend
+
+Este proyecto es el backend para una aplicación de gestión de turnos, desarrollado con Node.js, Express y MongoDB.
+
+## Características principales
+
+- **API RESTful** para gestión de usuarios, sesiones y turnos.
+- **Autenticación** con Passport.js y manejo de sesiones.
+- **Swagger** para documentación interactiva de la API.
+- **Notificaciones automáticas** de turnos pendientes usando tareas programadas con `node-cron`.
+- **Middleware** para seguridad, logging y manejo de cookies.
+- **CORS** configurado para permitir peticiones desde el frontend en React.
+
+## Estructura de rutas
+
+- `/api/sessions`: Autenticación y manejo de sesiones.
+- `/api/appointments`: Gestión de turnos.
+- `/api/users`: Gestión de usuarios.
+- `/api/reset-password`: Recuperación de contraseñas.
+- `/api/docs`: Documentación Swagger.
+
+## Instalación
+
+1. Clona el repositorio.
+2. Instala dependencias:
+    ```bash
+    npm install
+    ```
+3. Configura las variables de entorno en `./configs/configs.js` (puerto y URL de MongoDB).
+4. Inicia el servidor:
+    ```bash
+    npm start
+    ```
+
+## Tecnologías utilizadas
+
+- Node.js
+- Express
+- MongoDB (Mongoose)
+- Passport.js
+- Swagger
+- Morgan
+- CORS
+- node-cron
+
+## Notas
+
+- El backend está preparado para trabajar con un frontend en React corriendo en `http://localhost:5173`.
+- Las notificaciones de turnos pendientes se verifican automáticamente cada 30 minutos.
+
+---
+## Mocking de datos de prueba
+
+Para poblar la base de datos con usuarios y turnos de ejemplo, puedes ejecutar el script de mocking incluido en el proyecto. Este script utiliza `@faker-js/faker` para generar datos aleatorios en español y crea usuarios y turnos en MongoDB.
+
+### Ejecución
+
+1. Asegúrate de tener configurada la variable `URL_MONGO` en `./configs/configs.js`.
+2. Instala las dependencias necesarias:
+    ```bash
+    npm install @faker-js/faker bcrypt mongoose
+    ```
+3. Ejecuta el script de mocking:
+    ```bash
+    node ./mocking.js
+    ```
+4. El script generará usuarios (pacientes y doctores) y turnos de ejemplo en la base de datos.
+
+**Nota:** El script verifica la conexión a MongoDB antes de poblar los datos y cierra la conexión automáticamente al finalizar.

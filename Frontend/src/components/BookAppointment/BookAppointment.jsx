@@ -15,10 +15,12 @@ const BookAppointment = () => {
         time: '08:00', 
         notes:'',
         patient_name:'',
+        patient_email:'',
     });//estado para el formulario
 
     const [doctors, setDoctors] = useState([]) //almacenar la lista de doctores
 
+    const [error, setError] = useState(null); // Estado para manejar errores
     // Zona horaria local
     const TIME_ZONE = 'America/Argentina/Buenos_Aires';
 
@@ -42,10 +44,16 @@ const BookAppointment = () => {
                 setDoctors(response.data)
             } catch(error) {
                 console.error('Error al obtener la lista de doctores', error)
+                setError('Error al obtener la lista de doctores');
             }
         };
         fetchDoctors()
     }, []);
+
+      const validateEmail = (email) => {
+        const emailRegex = /\S+@\S+\.\S+/;
+        return emailRegex.test(email);
+        };
     // Manejar cambios en los campos del formulario
      const handleChange = (e) => {
         const { name, value } = e.target;
@@ -69,11 +77,17 @@ const BookAppointment = () => {
     // Manejar el envío del formulario
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setError('');
         try {
             if (!form.date || !form.time) {
-                alert('Por favor selecciona una fecha y hora');
+                setError('Por favor selecciona una fecha y hora');
                 return;
             }
+
+             if (role === 'admin' && form.patient_email && !validateEmail(form.patient_email)) {
+                setError('Por favor, ingrese un correo electrónico válido para el paciente');
+                return;
+                }
 
             const [hours, minutes] = form.time.split(':');
             const localDate = new Date(`${form.date}T${form.time}:00`);
@@ -91,6 +105,7 @@ const BookAppointment = () => {
                 date: utcDate,
                 notes: form.notes,
                 ...(role === 'admin' && form.patient_name ? { patient_name: form.patient_name } : {}),
+                ...(role === 'admin' && form.patient_email ? { patient_email: form.patient_email } : {}),
             };
 
             const response = await axios.post('/appointments', appointmentData);
@@ -99,124 +114,121 @@ const BookAppointment = () => {
             navigate('/appointments');
         } catch (error) {
             console.error('Error al reservar turno:', error);
-            alert('Error al reservar turno: ' + (error.response?.data?.message || 'Error desconocido'));
+            setError(error.response?.data?.message || 'Error al reservar turno');
         }
     };
-
-
-    // Formatear la fecha para el input datetime-local
-  const formatDateForInput = (date) => {
-    if (!date) return '';
-    try {
-      const localDate = toDate(date, { timeZone: TIME_ZONE });
-      if (isNaN(localDate.getTime())) {
-        console.error('Fecha inválida para input:', date);
-        return '';
-      }
-      const formatted = format(localDate, 'yyyy-MM-dd'); 
-      console.log('Fecha formateada para input:', formatted); // Depuración
-      return formatted;
-    } catch (error) {
-      console.error('Error formateando fecha para input:', error);
-      return '';
-    }
-  };
 
   console.log('Rol del usuario:', role); 
 
   return (
        <Container fluid>
-            <Row className="justify-content-center">
-                <Col md={8} className="text-center">
-                    <Card className="book-appointment-card">
-                        <Card.Body className="book-appointment-container">
-                            <Card.Title className="book-appointment-title">Reservar Turno</Card.Title>
-                            <Card.Text className="book-appointment-text">
-                                Selecciona un doctor, fecha y hora, y agrega notas para tu cita.
-                            </Card.Text>
-                            <Form onSubmit={handleSubmit}>
-                                <Form.Group controlId="doctorSelect" className="mb-3">
-                                    <Form.Label>Seleccionar Doctor</Form.Label>
-                                    <Form.Select
-                                        name="doctor"
-                                        onChange={handleChange}
-                                        value={form.doctor}
-                                        required
-                                        autoComplete="off"
-                                    >
-                                        <option value="">Seleccionar Doctor</option>
-                                        {doctors.map((doctor) => (
-                                            <option key={doctor._id} value={doctor._id}>
-                                                {doctor.first_name} {doctor.last_name}
-                                            </option>
-                                        ))}
-                                    </Form.Select>
-                                </Form.Group>
+      <Row className="justify-content-center">
+        <Col md={8} className="text-center">
+          <Card className="book-appointment-card">
+            <Card.Body className="book-appointment-container">
+              <Card.Title className="book-appointment-title">Reservar Turno</Card.Title>
+              <Card.Text className="book-appointment-text">
+                Selecciona un doctor, fecha y hora, y agrega notas para tu cita.
+              </Card.Text>
+              {error && (
+                <div className="alert alert-danger" role="alert">
+                  {error}
+                </div>
+              )}
+              <Form onSubmit={handleSubmit}>
+                <Form.Group controlId="doctorSelect" className="mb-3">
+                  <Form.Label>Seleccionar Doctor</Form.Label>
+                  <Form.Select
+                    name="doctor"
+                    onChange={handleChange}
+                    value={form.doctor}
+                    required
+                    autoComplete="off"
+                  >
+                    <option value="">Seleccionar Doctor</option>
+                    {doctors.map((doctor) => (
+                      <option key={doctor._id} value={doctor._id}>
+                        {doctor.first_name} {doctor.last_name}
+                      </option>
+                    ))}
+                  </Form.Select>
+                </Form.Group>
 
-                                <Form.Group controlId="dateInput" className="mb-3">
-                                    <Form.Label>Fecha</Form.Label>
-                                    <Form.Control
-                                        type="date"
-                                        name="date"
-                                        value={form.date}
-                                        onChange={handleChange}
-                                        required
-                                        min={format(new Date(), 'yyyy-MM-dd')} // Solo fechas futuras
-                                    />
-                                </Form.Group>
+                <Form.Group controlId="dateInput" className="mb-3">
+                  <Form.Label>Fecha</Form.Label>
+                  <Form.Control
+                    type="date"
+                    name="date"
+                    value={form.date}
+                    onChange={handleChange}
+                    required
+                    min={format(new Date(), 'yyyy-MM-dd')}
+                  />
+                </Form.Group>
 
-                                <Form.Group controlId="timeInput" className="mb-3">
-                                    <Form.Label>Hora</Form.Label>
-                                    <Form.Select
-                                        name="time"
-                                        value={form.time}
-                                        onChange={handleChange}
-                                        required
-                                    >
-                                        <option value="">Seleccionar Hora</option>
-                                        {generateTimeOptions().map((time) => (
-                                            <option key={time} value={time}>
-                                                {time}
-                                            </option>
-                                        ))}
-                                    </Form.Select>
-                                </Form.Group>
+                <Form.Group controlId="timeInput" className="mb-3">
+                  <Form.Label>Hora</Form.Label>
+                  <Form.Select
+                    name="time"
+                    value={form.time}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">Seleccionar Hora</option>
+                    {generateTimeOptions().map((time) => (
+                      <option key={time} value={time}>
+                        {time}
+                      </option>
+                    ))}
+                  </Form.Select>
+                </Form.Group>
 
-                                {/* Mostrar campo patient_name solo para administradores */}
-                                {role === 'admin' && (
-                                    <Form.Group controlId="patientNameInput" className="mb-3">
-                                        <Form.Label>Nombre del Paciente (Opcional)</Form.Label>
-                                        <Form.Control
-                                            type="text"
-                                            name="patient_name"
-                                            placeholder="Nombre del paciente"
-                                            value={form.patient_name}
-                                            onChange={handleChange}
-                                        />
-                                    </Form.Group>
-                                )}
+                {role === 'admin' && (
+                  <>
+                    <Form.Group controlId="patientNameInput" className="mb-3">
+                      <Form.Label>Nombre del Paciente (Opcional)</Form.Label>
+                      <Form.Control
+                        type="text"
+                        name="patient_name"
+                        placeholder="Nombre del paciente"
+                        value={form.patient_name}
+                        onChange={handleChange}
+                      />
+                    </Form.Group>
+                    <Form.Group controlId="patientEmailInput" className="mb-3">
+                      <Form.Label>Correo del Paciente (Opcional)</Form.Label>
+                      <Form.Control
+                        type="email"
+                        name="patient_email"
+                        placeholder="Correo del paciente"
+                        value={form.patient_email}
+                        onChange={handleChange}
+                      />
+                    </Form.Group>
+                  </>
+                )}
 
-                                <Form.Group controlId="notesTextarea" className="mb-3">
-                                    <Form.Label>Notas</Form.Label>
-                                    <Form.Control
-                                        as="textarea"
-                                        name="notes"
-                                        placeholder="Notas"
-                                        value={form.notes}
-                                        onChange={handleChange}
-                                        rows={4}
-                                    />
-                                </Form.Group>
+                <Form.Group controlId="notesTextarea" className="mb-3">
+                  <Form.Label>Notas</Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    name="notes"
+                    placeholder="Notas"
+                    value={form.notes}
+                    onChange={handleChange}
+                    rows={4}
+                  />
+                </Form.Group>
 
-                                <Button variant="primary" type="submit" className="book-appointment-button">
-                                    Reservar
-                                </Button>
-                            </Form>
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
-        </Container>
+                <Button variant="primary" type="submit" className="book-appointment-button">
+                  Reservar
+                </Button>
+              </Form>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

@@ -33,13 +33,15 @@ export const checkPendingAppointments = async () => {
 
     for (const appointment of pendingAppointments) {
       const user = appointment.user;
-      if (user && user.email) {
+      const recipientEmail = appointment.patient_email || (user && user.email); 
+      
+      if (recipientEmail) {
 
         const localDate = formatInTimeZone(toDate(appointment.date), TIME_ZONE, 'yyyy-MM-dd HH:mm');
-        logger.info(`Enviando notificación para el turno ${appointment._id} al usuario ${user.email} programado para ${localDate}`);
+        logger.info(`Enviando notificación para el turno ${appointment._id} a ${recipientEmail} programado para ${localDate}`);
 
         // Enviar notificación al usuario
-        await sendAppointmentReminder(user.email, {
+        await sendAppointmentReminder(recipientEmail, {
           date: localDate,
           notes: appointment.notes,
         });
@@ -48,7 +50,9 @@ export const checkPendingAppointments = async () => {
           { _id: appointment._id },
           { $set: { lastNotified: new Date() } } // Actualizar la fecha de la última notificación
         )
-      }
+      } logger.warn(
+          `No se encontró correo para el turno ${appointment._id} (patient_email: ${appointment.patient_email}, user: ${user?.email})`
+        );
     }
     logger.info(`Notificaciones enviadas para ${pendingAppointments.length} turnos pendientes.`);
   } catch (error) {

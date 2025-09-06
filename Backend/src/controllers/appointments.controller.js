@@ -5,66 +5,84 @@ import { AppointmentDTO } from '../services/dto/appointments.dto.js';
 import logger from '../utils/logger.js';
 
 export const createAppointment = async (req, res) => {
-    try {
-        logger.info('Creando un nuevo turno');
-        logger.info(`Datos recibidos: ${JSON.stringify(req.body)}`);
-        
-        if (!req.user || !req.user.id) {
-            logger.warn('Usuario no autenticado al intentar crear un turno');
-            return res.status(401).json({ message: 'Usuario no autenticado' });
-        }
+  try {
+    logger.info('Creando un nuevo turno');
+    logger.info(`Datos recibidos: ${JSON.stringify(req.body)}`);
 
-        const { doctor, date, notes, patient_name } = req.body;
-
-        if (!doctor || !date) {
-            return res.status(400).json({ message: 'Faltan datos requeridos' });
-        }
-         // Validar ObjectId
-        if (!mongoose.Types.ObjectId.isValid(doctor)) {
-            logger.warn(`ID de doctor inválido: ${doctor}`);
-            return res.status(400).json({ message: 'ID de doctor inválido' });
-        }
-
-         // Validar fecha
-         const appointmentDate = new Date(date);
-        if (!date || isNaN(appointmentDate.getTime())) {
-        return res.status(400).json({ message: 'Fecha inválida' });
-        }
-
-        // Validar que el doctor sea un admin
-         const isAdminDoctor = await appointmentsDAO.isAdmin(doctor);
-         logger.info(`El doctor con ID ${doctor} es admin: ${isAdminDoctor}`);
-        if (!isAdminDoctor) {
-            return res.status(400).json({ message: 'El doctor especificado no es válido' });
-        }
-
-        // Validar conflictos de horario
-        const existingAppointment = await appointmentsDAO.findAppointmentByDoctorAndDate(doctor, new Date(date));
-        if (existingAppointment) {
-            return res.status(400).json({ message: 'El horario ya está ocupado' });
-        }
-
-        let finalPatientName;
-        if (req.user.role === 'admin') {
-            finalPatientName = patient_name || null;
-        } else {
-            finalPatientName = patient_name || req.user.name || 'Paciente Anónimo';
-        }
-
-        const appointmentData = AppointmentDTO.fromRequest({
-            user: req.user.id,
-            patient_name: finalPatientName,
-            doctor,
-            date: appointmentDate,
-            notes
-        });
-
-        const appointment = await appointmentsDAO.createAppointment(appointmentData);
-        res.status(201).json(new AppointmentDTO(appointment));
-    } catch (error) {
-        logger.error(`Error al crear turno: ${error.message}\n${error.stack}`);
-        res.status(500).json({ message: 'Error al crear el turno', error: error.message });
+    if (!req.user || !req.user.id) {
+      logger.warn('Usuario no autenticado al intentar crear un turno');
+      return res.status(401).json({ message: 'Usuario no autenticado' });
     }
+
+    const { doctor, date, notes, patient_name, patient_email } = req.body;
+
+    if (!doctor || !date) {
+      return res.status(400).json({ message: 'Faltan datos requeridos' });
+    }
+
+    // Validar ObjectId
+    if (!mongoose.Types.ObjectId.isValid(doctor)) {
+      logger.warn(`ID de doctor inválido: ${doctor}`);
+      return res.status(400).json({ message: 'ID de doctor inválido' });
+    }
+
+    // Validar fecha
+    const appointmentDate = new Date(date);
+    if (!date || isNaN(appointmentDate.getTime())) {
+      return res.status(400).json({ message: 'Fecha inválida' });
+    }
+
+    // Validar correo del paciente (si se proporciona)
+    if (patient_email) {
+      const emailRegex = /\S+@\S+\.\S+/;
+      if (!emailRegex.test(patient_email)) {
+        logger.warn(`Correo electrónico del paciente inválido: ${patient_email}`);
+        return res.status(400).json({ message: 'Correo electrónico del paciente inválido' });
+      }
+    }
+
+    // Validar que el doctor sea un admin
+    logger.info(`Verificando si el doctor ${doctor} es admin`);
+    const isAdminDoctor = await appointmentsDAO.isAdmin(doctor);
+    logger.info(`El doctor con ID ${doctor} es admin: ${isAdminDoctor}`);
+    if (!isAdminDoctor) {
+      return res.status(400).json({ message: 'El doctor especificado no es válido' });
+    }
+
+    // Validar conflictos de horario
+    logger.info(`Buscando conflictos de horario para doctor ${doctor} en ${appointmentDate}`);
+    const existingAppointment = await appointmentsDAO.findAppointmentByDoctorAndDate(doctor, new Date(date));
+    if (existingAppointment) {
+      return res.status(400).json({ message: 'El horario ya está ocupado' });
+    }
+
+    let finalPatientName;
+    let finalPatientEmail;
+    if (req.user.role === 'admin') {
+      finalPatientName = patient_name || null;
+      finalPatientEmail = patient_email || null; // Corrección: asignar patient_email
+    } else {
+      finalPatientName = patient_name || req.user.name || 'Paciente Anónimo';
+      finalPatientEmail = null;
+    }
+
+    const appointmentData = AppointmentDTO.fromRequest({
+      user: req.user.id,
+      patient_name: finalPatientName,
+      patient_email: finalPatientEmail,
+      doctor,
+      date: appointmentDate,
+      notes,
+    });
+    logger.info(`Datos para crear turno: ${JSON.stringify(appointmentData)}`);
+
+    const appointment = await appointmentsDAO.createAppointment(appointmentData);
+    logger.info(`Turno creado: ${appointment._id}`);
+    res.status(201).json(new AppointmentDTO(appointment));
+  } catch (error) {
+    logger.error(`Error al crear turno: ${error.message}\n${error.stack}`);
+    res.status(500).json({ message: 'Error al crear el turno', error: error.message });
+  }
 };
 
 export const getUserAppointment = async (req, res) => {

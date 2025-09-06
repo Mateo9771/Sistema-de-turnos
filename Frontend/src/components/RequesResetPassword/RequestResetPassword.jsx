@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Container, Card, Form, Button, Alert } from 'react-bootstrap';
-import axios from 'axios';
+import axios from '../../api/axios.api.jsx';
 import './RequestResetPassword.css';
 
 const RequestResetPassword = () => {
@@ -22,7 +22,7 @@ const RequestResetPassword = () => {
       return;
     }
     try {
-      const response = await axios.post('api/reset-password/request', { email });
+      const response = await axios.post('/reset-password/request', { email });
       setMessage(response.data.message || 'Enlace de restablecimiento enviado. Revisa tu correo.');
       setError('');
     } catch (err) {

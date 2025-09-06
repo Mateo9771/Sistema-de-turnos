@@ -1,7 +1,7 @@
 // TURNERO\Frontend\src\components\login\login.jsx
 import React, { useState, useContext, useEffect } from 'react';
 import { Container, Form, Button, Card, ToggleButton, Alert } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from '../../api/axios.api.jsx';
 import { RoleContext } from '../../App';
 import './login.css';
@@ -196,6 +196,11 @@ const Login = () => {
               <Button type="submit" variant="primary" className="login-button">
                 Iniciar Sesión
               </Button>
+              <div className="mt-3">
+                <Link to="/request-reset-password" className="text-decoration-none">
+                  ¿Olvidaste tu contraseña?
+                </Link>
+              </div>
             </Form>
           )}
         </Card.Body>

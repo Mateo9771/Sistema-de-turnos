@@ -4,6 +4,7 @@ export class AppointmentDTO {
         this.id = appointment._id.toString();
         this.user = appointment.user ? appointment.user._id : null;
         this.patient_name = appointment.patient_name || null;
+        this.patient_email = appointment.patient_email || null;
         this.doctor = {
             id: appointment.doctor?._id?.toString(),
             first_name: appointment.doctor?.first_name,
@@ -19,6 +20,7 @@ export class AppointmentDTO {
         return {
             user: data.user || null,
             patient_name: data.patient_name || null,
+            patient_email: data.patient_email || null,
             doctor: data.doctor,
             date: data.date ? new Date(data.date) : null, // Convertir a Date
             notes: data.notes || '',
