@@ -1,5 +1,5 @@
 // TURNERO\Frontend\src\App.jsx
-import './app.css';
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
