@@ -1,4 +1,2 @@
 **/node_modules/
 Backend/src/configs/.env
-Backend\src\logs\app.log
-Backend\src\logs\error.log
